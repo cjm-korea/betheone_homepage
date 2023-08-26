@@ -1,15 +1,26 @@
-import { AppBar, Box, Drawer, Link, Typography } from '@mui/material'
+import { AppBar, Box, Button, Drawer, IconButton, Link, Typography } from '@mui/material'
 import { Base } from './Base'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 
 export const Header = () => {
 
-  const HeaderCenterMenu = (
+  const HeaderMenu = (
     <Box sx={{
-      display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex' },
+      // display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex' },
+      marginLeft: 'auto',
+      marginRight: '20px',
       flexDirection: 'row',
       justifyContent: 'space-between',
+      width: 'auto'
     }}>
-      <Typography variant='subtitle1' sx={{ paddingX: 2 }}>
+      <Button sx={{marginRight: '38px'}}> ABOUT US</Button>
+      <Button sx={{marginRight: '38px'}}> 제품 소개</Button>
+      <Button sx={{marginRight: '38px'}}> 사용 기업</Button>
+      <Button sx={{marginRight: '38px'}}> CONTACT</Button>
+      <Button sx={{marginRight: '38px'}}> 회사 소개서</Button>
+      <Button sx={{marginRight: '38px'}}> Q&A</Button>
+      {/* <Typography variant='subtitle1' sx={{ paddingX: 2 }}>
         Model S
       </Typography>
       <Typography variant='subtitle1' sx={{ paddingX: 2 }}>
@@ -26,13 +37,25 @@ export const Header = () => {
       </Typography>
       <Typography variant='subtitle1' sx={{ paddingX: 2 }}>
         Powerwall
-      </Typography>
+      </Typography> */}
     </Box>
   )
 
   const HeaderRightMenu = (
     <>
       <Box sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: 'auto'
+        }}>
+        <IconButton sx={{ backgroundColor: 'white', color: 'black', ":hover": {backgroundColor: '#D5D5D5'}, marginRight: '33px' }}>
+          <InstagramIcon fontSize='inherit' />
+        </IconButton>
+        <IconButton sx={{ backgroundColor: 'white', color: 'black', ":hover": {backgroundColor: '#D5D5D5'} }}>
+          <FacebookRoundedIcon fontSize='inherit' />
+        </IconButton>
+      </Box>
+      {/* <Box sx={{
         display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex' },
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -55,14 +78,14 @@ export const Header = () => {
         <Typography variant='h6' sx={{ paddingX: 2 }}>
           메뉴
         </Typography>
-      </Box>
+      </Box> */}
     </>
   )
 
   const ToggleDrawer = (
     <Drawer
       anchor={'right'}
-      
+
     >
 
     </Drawer>
@@ -71,13 +94,15 @@ export const Header = () => {
   return (
 
     <AppBar position='fixed' sx={{
-      backgroundColor: 'transparent',
-      color: 'white',
+      backgroundColor: '#282828',
+      // color: '#282828',
+      position: 'fixed',
       display: 'flex',
       justifyContent: 'space-between',
       flexDirection: 'row',
-      paddingX: 10,
-      paddingY: 2,
+      alignItems: 'center',
+      paddingX: '20px',
+      paddingY: '20px',
       boxShadow: 'none'
     }}>
       <Box>
@@ -86,7 +111,7 @@ export const Header = () => {
           비더원
         </Typography> */}
       </Box>
-      {HeaderCenterMenu}
+      {HeaderMenu}
       {HeaderRightMenu}
     </AppBar>
   )
