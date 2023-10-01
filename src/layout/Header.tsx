@@ -136,7 +136,7 @@ export const Header = () => {
       </Box>
       {/* Tablet */}
       <Box sx={{
-        display: { xs: 'none', sm: 'block', md: 'block', lg: 'block', xl: 'block' },
+        display: { xs: 'none', sm: 'block', md: 'block', lg: 'block', xl: 'none' },
       }}>
         <img src="/images/logo_symbol.png" alt="비더원 로고" width="160rem" height="auto" />
       </Box>
