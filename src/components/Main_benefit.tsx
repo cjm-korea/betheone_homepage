@@ -16,7 +16,7 @@ const Main_benefit = ({ }: Main_benefitProps) => (
       margin: 0,
       padding: 0
     }}>
-      <img src='images/product_2.png' width={'100%'} height={'auto'} />
+      <img src='images/main_benefit.png' width={'100%'} height={'auto'} />
     </Box>
     {/* Mobile */}
   </div>

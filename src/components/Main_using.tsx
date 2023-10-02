@@ -15,7 +15,7 @@ const Main_using = ({ }: Main_usingProps) => (
             margin: 0,
             padding: 0
         }}>
-            <img src='images/using.png' width={'100%'} height={'auto'} />
+            <img src='images/main_using.png' width={'100%'} height={'auto'} />
         </Box>
         {/* Mobile */}
     </div>
