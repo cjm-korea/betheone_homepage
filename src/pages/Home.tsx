@@ -17,6 +17,15 @@ import Main_using from '../components/Main_using';
 import Main_contact from '../components/Main_contact';
 
 export const Home = () => {
+  const componentRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSolution = () => {
+    window.scrollTo({
+      behavior: 'smooth',
+      top: componentRef.current?.offsetTop
+    })
+  }
+
   // const swiper = (
   //   <>
   //     {/* Desktop */}
@@ -95,9 +104,9 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header scrollToComponent={scrollToSolution} />
 
-      <Main_mp4 />
+      <Main_mp4 parentRef={componentRef} />
 
       <Main_solution />
 

@@ -26,6 +26,20 @@ declare module "@mui/material" {
 
 // const theme = createTheme(themeOptions)
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: false; // removes the `xs` breakpoint
+    sm: false;
+    md: false;
+    lg: false;
+    xl: false;
+    mobile: true; // adds the `mobile` breakpoint
+    tablet: true;
+    laptop: true;
+    desktop: true;
+  }
+}
+
 // A custom theme for this app
 const theme = createTheme({
   palette: {
@@ -42,6 +56,14 @@ const theme = createTheme({
     
   },
   components: {
+  },
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 640,
+      laptop: 1024,
+      desktop: 1200
+    }
   }
 });
 

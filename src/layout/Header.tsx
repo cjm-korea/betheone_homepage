@@ -1,12 +1,17 @@
 import { AppBar, Box, Button, Drawer, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
-import { Base } from './Base'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import CloseIcon from '@mui/icons-material/Close';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
 
-export const Header = () => {
+const FAQURL = process.env.REACT_APP_QAURL
+
+interface headerProps {
+  scrollToComponent: () => void
+}
+
+export const Header = ({ scrollToComponent }: headerProps) => {
   type Anchor = 'right';
 
   const [state, setState] = React.useState({
@@ -42,17 +47,17 @@ export const Header = () => {
       }}>
         <ListItem>
           {/* <ListItemButton> */}
-            <ListItemIcon sx={{ color: 'white' }}>
-              <InstagramIcon fontSize='large' sx={{ marginRight: 2 }} />
-              <FacebookRoundedIcon fontSize='large' />
-            </ListItemIcon>
-            <Box sx={{ marginX: 'auto' }} />
-            <CloseIcon sx={{
-              display: 'flex',
-              justifyContent: 'right',
-              alignItems: 'end',
-              color: 'white'
-            }} />
+          <ListItemIcon sx={{ color: 'white' }}>
+            <InstagramIcon fontSize='large' sx={{ marginRight: 2 }} />
+            <FacebookRoundedIcon fontSize='large' />
+          </ListItemIcon>
+          <Box sx={{ marginX: 'auto' }} />
+          <CloseIcon sx={{
+            display: 'flex',
+            justifyContent: 'right',
+            alignItems: 'end',
+            color: 'white'
+          }} />
           {/* </ListItemButton> */}
         </ListItem>
         {['ABOUT US', '제품 소개', '사용 기업', 'CONTACT', '회사 소개서', 'Q&A'].map((text, index) => (
@@ -72,7 +77,7 @@ export const Header = () => {
   const HeaderMenu = (
     <>
       <Box sx={{
-        display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' },
+        display: { mobile: 'none', tablet: 'none', laptop: 'flex', desktop: 'flex' },
         marginLeft: 'auto',
         marginRight: '20px',
         flexDirection: 'row',
@@ -81,10 +86,10 @@ export const Header = () => {
       }}>
         <Button sx={{ marginRight: '38px' }}> ABOUT US</Button>
         <Button sx={{ marginRight: '38px' }}> 제품 소개</Button>
-        <Button sx={{ marginRight: '38px' }}> 사용 기업</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={scrollToComponent}> 사용 기업</Button>
         <Button sx={{ marginRight: '38px' }}> CONTACT</Button>
         <Button sx={{ marginRight: '38px' }}> 회사 소개서</Button>
-        <Button sx={{ marginRight: '38px' }}> Q&A</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => { window.open(FAQURL) }}> Q&A</Button>
       </Box>
     </>
 
@@ -93,7 +98,7 @@ export const Header = () => {
   const HeaderRightMenu = (
     <>
       <Box sx={{
-        display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' },
+        display: { mobile: 'none', tablet: 'none', laptop: 'none', desktop: 'flex' },
         justifyContent: 'space-between',
         width: 'auto'
       }}>
@@ -110,7 +115,6 @@ export const Header = () => {
   const ToggleDrawer = (
     <Drawer
       anchor={'right'}
-
     >
     </Drawer>
   )
@@ -118,9 +122,10 @@ export const Header = () => {
   return (
     <AppBar position='fixed' sx={{
       backgroundColor: '#282828',
-      // color: '#282828',
+      width: '100vw',
       position: 'fixed',
       display: 'flex',
+      left: 0,
       justifyContent: 'space-between',
       flexDirection: 'row',
       alignItems: 'center',
@@ -130,19 +135,19 @@ export const Header = () => {
     }}>
       {/* Desktop */}
       <Box sx={{
-        display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' },
+        display: { mobile: 'none', tablet: 'none', laptop: 'flex', desktop: 'flex' },
       }}>
         <img src="/images/logo_symbol.png" alt="비더원 로고" width="180rem" height="auto" />
       </Box>
       {/* Tablet */}
       <Box sx={{
-        display: { xs: 'none', sm: 'block', md: 'block', lg: 'block', xl: 'none' },
+        display: { mobile: 'none', tablet: 'flex', laptop: 'none', desktop: 'none' },
       }}>
         <img src="/images/logo_symbol.png" alt="비더원 로고" width="160rem" height="auto" />
       </Box>
       {/* Mobile */}
       <Box sx={{
-        display: { xs: 'block', sm: 'none', md: 'none', lg: 'none', xl: 'none' },
+        display: { mobile: 'flex', tablet: 'none', laptop: 'none', desktop: 'none' },
       }}>
         <img src="/images/logo_symbol.png" alt="비더원 로고" width="120rem" height="auto" />
       </Box>
@@ -151,7 +156,7 @@ export const Header = () => {
       {HeaderRightMenu}
       {/* Mobile, Tablet */}
       <Box sx={{
-        display: { xs: 'block', sm: 'block', md: 'block', lg: 'block', xl: 'none' },
+        display: { mobile: 'flex', tablet: 'flex', laptop: 'none', desktop: 'none' },
       }}>
         <Button>
           <div>
