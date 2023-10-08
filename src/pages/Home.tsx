@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Header } from '../layout/Header'
-import { Body } from '../layout/Body'
-import { Box, Button, Typography } from '@mui/material'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,14 +15,24 @@ import Main_using from '../components/Main_using';
 import Main_contact from '../components/Main_contact';
 
 export const Home = () => {
-  const componentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [currIdx, setCurrIdx] = useState<number>(0);
 
-  const scrollToSolution = () => {
-    window.scrollTo({
-      behavior: 'smooth',
-      top: componentRef.current?.offsetTop
-    })
+  const selectRef = (idx: number) => {
+    setCurrIdx(idx)
   }
+
+  useEffect(() => {
+    if(containerRef.current){
+      console.log(containerRef.current)
+      const el = containerRef.current.children[currIdx] as HTMLElement
+      const top = window.scrollY + el.getBoundingClientRect().top + 76
+      console.log(el)
+      console.log(top)
+
+      window.scrollTo({behavior: 'smooth', top: top, })
+    }
+  }, [currIdx])
 
   // const swiper = (
   //   <>
@@ -103,10 +111,10 @@ export const Home = () => {
   // )
 
   return (
-    <>
-      <Header scrollToComponent={scrollToSolution} />
+    <div ref={containerRef}>
+      <Header selectRef={selectRef} />
 
-      <Main_mp4 parentRef={componentRef} />
+      <Main_mp4 />
 
       <Main_solution />
 
@@ -115,93 +123,6 @@ export const Home = () => {
       <Main_using />
 
       <Main_contact />
-
-      
-      {/* Desktop */}
-      {/* <Box sx={{
-        display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' },
-        backgroundSize: 'contain',
-        position: 'relative',
-        height: 'calc(100vh/3)',
-        width: '100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: "url('images/contact.png')",
-        backgroundColor: '#122138',
-        margin: 0,
-        padding: 0
-      }}>
-        <Button sx={{
-          position: 'absolute',
-          backgroundColor: 'white',
-          color: 'black',
-          textAlign: 'center',
-          size: 'large',
-          borderRadius: 15,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          ":hover": { backgroundColor: '#D5D5D5' }
-        }}>
-          문의글 작성하기
-        </Button>
-      </Box> */}
-      {/* Tablet */}
-      {/* <Box sx={{
-        display: { xs: 'none', sm: 'block', md: 'block', lg: 'block', xl: 'none' },
-        backgroundSize: 'contain',
-        position: 'relative',
-        height: 'calc(100vh/2)',
-        width: '100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: "url('images/contact.png')",
-        backgroundColor: '#122138',
-        margin: 0,
-        padding: 0
-      }}>
-        <Button sx={{
-          position: 'absolute',
-          backgroundColor: 'white',
-          color: 'black',
-          textAlign: 'center',
-          size: 'large',
-          borderRadius: 15,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          ":hover": { backgroundColor: '#D5D5D5' }
-        }}>
-          문의글 작성하기
-        </Button>
-      </Box> */}
-      {/* Mobile */}
-      {/* <Box sx={{
-        display: { xs: 'block', sm: 'none', md: 'none', lg: 'none', xl: 'none' },
-        position: 'relative',
-        height: 'calc(50vh)',
-        width: '100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: "url('images/contact_mobile.png')",
-        backgroundColor: '#122138'
-      }}>
-        <Button sx={{
-          position: 'absolute',
-          backgroundColor: 'white',
-          color: 'black',
-          textAlign: 'center',
-          size: 'large',
-          borderRadius: 15,
-          top: '38%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          ":hover": { backgroundColor: '#D5D5D5' }
-        }}>
-          문의글 작성하기
-        </Button>
-      </Box> */}
-      {/* <Body/> */}
-    </>
+    </div>
   )
 }

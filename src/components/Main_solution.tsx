@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
 interface MainsolutionProps {
-
 }
 
 const Mainsolution = ({ }: MainsolutionProps) => (

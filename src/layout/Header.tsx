@@ -3,18 +3,19 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import CloseIcon from '@mui/icons-material/Close';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import MenuIcon from '@mui/icons-material/Menu';
-import React from 'react';
+import { Fragment, useState } from 'react';
 
 const FAQURL = process.env.REACT_APP_QAURL
 
 interface headerProps {
-  scrollToComponent: () => void
+  selectRef: (idx: number) => void
 }
 
-export const Header = ({ scrollToComponent }: headerProps) => {
+export const Header = ({ selectRef }: headerProps) => {
+
   type Anchor = 'right';
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     right: false,
   });
 
@@ -60,16 +61,57 @@ export const Header = ({ scrollToComponent }: headerProps) => {
           }} />
           {/* </ListItemButton> */}
         </ListItem>
-        {['ABOUT US', '제품 소개', '사용 기업', 'CONTACT', '회사 소개서', 'Q&A'].map((text, index) => (
+        <ListItem key={'ABOUT US'} disablePadding  onClick={() => selectRef(0)}>
+          <ListItemButton>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary={'ABOUT US'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'제품 소개'} disablePadding onClick={() => selectRef(1)}>
+          <ListItemButton>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary={'제품 소개'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'사용 기업'} disablePadding  onClick={() => selectRef(4)}>
+          <ListItemButton>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary={'사용 기업'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'CONTACT'} disablePadding  onClick={() => selectRef(5)}>
+          <ListItemButton>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary={'CONTACT'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'회사 소개서'} disablePadding  onClick={() => selectRef(1)}>
+          <ListItemButton>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary={'회사 소개서'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'Q&A'} disablePadding  onClick={() => window.open(FAQURL)}>
+          <ListItemButton>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary={'Q&A'} />
+          </ListItemButton>
+        </ListItem>
+        {/* {[, '', '', '', '', ''].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
-        ))}
+        ))} */}
       </List>
     </Box>
   );
@@ -84,11 +126,11 @@ export const Header = ({ scrollToComponent }: headerProps) => {
         justifyContent: 'space-between',
         width: 'auto'
       }}>
-        <Button sx={{ marginRight: '38px' }}> ABOUT US</Button>
-        <Button sx={{ marginRight: '38px' }}> 제품 소개</Button>
-        <Button sx={{ marginRight: '38px' }} onClick={scrollToComponent}> 사용 기업</Button>
-        <Button sx={{ marginRight: '38px' }}> CONTACT</Button>
-        <Button sx={{ marginRight: '38px' }}> 회사 소개서</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(0)}> ABOUT US</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(1)}> 제품 소개</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(4)}> 사용 기업</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(5)}> CONTACT</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(1)}> 회사 소개서</Button>
         <Button sx={{ marginRight: '38px' }} onClick={() => { window.open(FAQURL) }}> Q&A</Button>
       </Box>
     </>
@@ -158,10 +200,10 @@ export const Header = ({ scrollToComponent }: headerProps) => {
       <Box sx={{
         display: { mobile: 'flex', tablet: 'flex', laptop: 'none', desktop: 'none' },
       }}>
-        <Button>
+        <Box>
           <div>
             {(['right'] as const).map((anchor) => (
-              <React.Fragment key={anchor}>
+              <Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>
                   <MenuIcon sx={{
                     color: 'white'
@@ -174,10 +216,10 @@ export const Header = ({ scrollToComponent }: headerProps) => {
                 >
                   {list(anchor)}
                 </Drawer>
-              </React.Fragment>
+              </Fragment>
             ))}
           </div>
-        </Button>
+        </Box>
       </Box>
     </AppBar>
   )

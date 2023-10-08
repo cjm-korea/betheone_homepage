@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
+import { RefObject } from "react"
 
 interface Main_usingProps {
-
 }
 
 const Main_using = ({ }: Main_usingProps) => (

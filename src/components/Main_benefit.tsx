@@ -1,11 +1,11 @@
 import { Box } from '@mui/material'
-import { FC } from 'react'
+import { FC, RefObject } from 'react'
 
 interface Main_benefitProps {
 
 }
 
-const Main_benefit = ({ }: Main_benefitProps) => (
+const Main_benefit = ({  }: Main_benefitProps) => (
   <div>
     {/* Desktop, Tablet */}
     <Box sx={{
