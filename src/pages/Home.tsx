@@ -26,7 +26,7 @@ export const Home = () => {
     if(containerRef.current){
       console.log(containerRef.current)
       const el = containerRef.current.children[currIdx] as HTMLElement
-      const top = window.scrollY + el.getBoundingClientRect().top + 76
+      const top = window.scrollY + el.getBoundingClientRect().top - 76
       console.log(el)
       console.log(top)
 

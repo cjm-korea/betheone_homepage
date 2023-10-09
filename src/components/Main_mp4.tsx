@@ -52,7 +52,7 @@ const Mainmp4 = ({  }: Mainmp4Props) => {
                 height: 'auto',
                 width: '100%',
                 left: 0,
-                paddingTop: '88px',
+                paddingTop: '76px',
                 display: { mobile: 'flex', tablet: 'none', laptop: 'none', desktop: 'none' },
             }}>
                 <video autoPlay loop muted style={{ width: '100%', height: '80%' }}>

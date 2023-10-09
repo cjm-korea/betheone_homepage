@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Fragment, useState } from 'react';
 
 const FAQURL = process.env.REACT_APP_QAURL
+const OBURL = process.env.REACT_APP_OBURL
 
 interface headerProps {
   selectRef: (idx: number) => void
@@ -61,7 +62,7 @@ export const Header = ({ selectRef }: headerProps) => {
           }} />
           {/* </ListItemButton> */}
         </ListItem>
-        <ListItem key={'ABOUT US'} disablePadding  onClick={() => selectRef(0)}>
+        <ListItem key={'ABOUT US'} disablePadding onClick={() => selectRef(0)}>
           <ListItemButton>
             <ListItemIcon>
             </ListItemIcon>
@@ -75,28 +76,28 @@ export const Header = ({ selectRef }: headerProps) => {
             <ListItemText primary={'제품 소개'} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={'사용 기업'} disablePadding  onClick={() => selectRef(4)}>
+        <ListItem key={'사용 기업'} disablePadding onClick={() => selectRef(4)}>
           <ListItemButton>
             <ListItemIcon>
             </ListItemIcon>
             <ListItemText primary={'사용 기업'} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={'CONTACT'} disablePadding  onClick={() => selectRef(5)}>
+        <ListItem key={'CONTACT'} disablePadding onClick={() => selectRef(5)}>
           <ListItemButton>
             <ListItemIcon>
             </ListItemIcon>
             <ListItemText primary={'CONTACT'} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={'회사 소개서'} disablePadding  onClick={() => selectRef(1)}>
+        <ListItem key={'회사 소개서'} disablePadding onClick={() => selectRef(1)}>
           <ListItemButton>
             <ListItemIcon>
             </ListItemIcon>
             <ListItemText primary={'회사 소개서'} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={'Q&A'} disablePadding  onClick={() => window.open(FAQURL)}>
+        <ListItem key={'Q&A'} disablePadding onClick={() => window.open(FAQURL)}>
           <ListItemButton>
             <ListItemIcon>
             </ListItemIcon>
@@ -126,12 +127,12 @@ export const Header = ({ selectRef }: headerProps) => {
         justifyContent: 'space-between',
         width: 'auto'
       }}>
-        <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(0)}> ABOUT US</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => window.open(OBURL) }> ABOUT US</Button>
         <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(1)}> 제품 소개</Button>
         <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(4)}> 사용 기업</Button>
         <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(5)}> CONTACT</Button>
         <Button sx={{ marginRight: '38px' }} onClick={() => selectRef(1)}> 회사 소개서</Button>
-        <Button sx={{ marginRight: '38px' }} onClick={() => { window.open(FAQURL) }}> Q&A</Button>
+        <Button sx={{ marginRight: '38px' }} onClick={() => window.open(FAQURL)}> Q&A</Button>
       </Box>
     </>
 
@@ -162,65 +163,69 @@ export const Header = ({ selectRef }: headerProps) => {
   )
 
   return (
-    <AppBar position='fixed' sx={{
-      backgroundColor: '#282828',
-      width: '100vw',
-      position: 'fixed',
-      display: 'flex',
-      left: 0,
-      justifyContent: 'space-between',
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingX: '20px',
-      paddingY: '20px',
-      boxShadow: 'none'
-    }}>
-      {/* Desktop */}
-      <Box sx={{
-        display: { mobile: 'none', tablet: 'none', laptop: 'flex', desktop: 'flex' },
+    // <Box sx={{ flexGrow: 1, bgcolor: 'black', width: '100%' }}>
+    //   asd
+    // </Box>
+    <Box sx={{ display: 'flex', flexGrow: 1 }}>
+      <AppBar position='fixed' sx={{
+        backgroundColor: '#282828',
+        position: 'fixed',
+        display: 'flex',
+        left: 0,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingX: '20px',
+        paddingY: '20px',
+        boxShadow: 'none'
       }}>
-        <img src="/images/logo_symbol.png" alt="비더원 로고" width="180rem" height="auto" />
-      </Box>
-      {/* Tablet */}
-      <Box sx={{
-        display: { mobile: 'none', tablet: 'flex', laptop: 'none', desktop: 'none' },
-      }}>
-        <img src="/images/logo_symbol.png" alt="비더원 로고" width="160rem" height="auto" />
-      </Box>
-      {/* Mobile */}
-      <Box sx={{
-        display: { mobile: 'flex', tablet: 'none', laptop: 'none', desktop: 'none' },
-      }}>
-        <img src="/images/logo_symbol.png" alt="비더원 로고" width="120rem" height="auto" />
-      </Box>
-      {/* Desktop */}
-      {HeaderMenu}
-      {HeaderRightMenu}
-      {/* Mobile, Tablet */}
-      <Box sx={{
-        display: { mobile: 'flex', tablet: 'flex', laptop: 'none', desktop: 'none' },
-      }}>
-        <Box>
-          <div>
-            {(['right'] as const).map((anchor) => (
-              <Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)}>
-                  <MenuIcon sx={{
-                    color: 'white'
-                  }} />
-                </Button>
-                <Drawer
-                  anchor={anchor}
-                  open={state[anchor]}
-                  onClose={toggleDrawer(anchor, false)}
-                >
-                  {list(anchor)}
-                </Drawer>
-              </Fragment>
-            ))}
-          </div>
+        {/* Desktop */}
+        <Box sx={{
+          display: { mobile: 'none', tablet: 'none', laptop: 'flex', desktop: 'flex' },
+        }}>
+          <img src="/images/logo_symbol.png" alt="비더원 로고" width="180rem" height="auto" />
         </Box>
-      </Box>
-    </AppBar>
+        {/* Tablet */}
+        <Box sx={{
+          display: { mobile: 'none', tablet: 'flex', laptop: 'none', desktop: 'none' },
+        }}>
+          <img src="/images/logo_symbol.png" alt="비더원 로고" width="160rem" height="auto" />
+        </Box>
+        {/* Mobile */}
+        <Box sx={{
+          display: { mobile: 'flex', tablet: 'none', laptop: 'none', desktop: 'none' },
+        }}>
+          <img src="/images/logo_symbol.png" alt="비더원 로고" width="120rem" height="auto" />
+        </Box>
+        {/* Desktop */}
+        {HeaderMenu}
+        {HeaderRightMenu}
+        {/* Mobile, Tablet */}
+        <Box sx={{
+          display: { mobile: 'flex', tablet: 'flex', laptop: 'none', desktop: 'none' },
+        }}>
+          <Box>
+            <div>
+              {(['right'] as const).map((anchor) => (
+                <Fragment key={anchor}>
+                  <Button onClick={toggleDrawer(anchor, true)}>
+                    <MenuIcon sx={{
+                      color: 'white'
+                    }} />
+                  </Button>
+                  <Drawer
+                    anchor={anchor}
+                    open={state[anchor]}
+                    onClose={toggleDrawer(anchor, false)}
+                  >
+                    {list(anchor)}
+                  </Drawer>
+                </Fragment>
+              ))}
+            </div>
+          </Box>
+        </Box>
+      </AppBar>
+    </Box>
   )
 }

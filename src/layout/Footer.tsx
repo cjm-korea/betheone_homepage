@@ -4,7 +4,8 @@ interface FooterProps {
 
 }
 
-const FAQURL = process.env.REACT_APP_QAURL
+const QAURL = process.env.REACT_APP_QAURL
+const FAQURL = process.env.REACT_APP_FAQURL
 
 const Footer = ({ }: FooterProps) => (
   <div>
@@ -19,8 +20,8 @@ const Footer = ({ }: FooterProps) => (
         <Box>
           <Typography variant="h4" component='h2'>고객문의</Typography>
           <Typography variant="body1" mt={3} sx={{ cursor: 'pointer' }}>• 광고 및 제휴 문의</Typography>
-          <Typography variant="body1" mt={3} sx={{ cursor: 'pointer' }}  onClick={() => { window.open(FAQURL) }}>• 고객문의</Typography>
-          <Typography variant="body1" mt={3} sx={{ cursor: 'pointer' }}>• FAQ</Typography>
+          <Typography variant="body1" mt={3} sx={{ cursor: 'pointer' }} onClick={() => { window.open(QAURL) }}>• 고객문의</Typography>
+          <Typography variant="body1" mt={3} sx={{ cursor: 'pointer' }} onClick={() => { window.open(FAQURL) }}>• FAQ</Typography>
         </Box>
         <Box>
           <Typography variant="h4" component='h2'>모바일 버전</Typography>
