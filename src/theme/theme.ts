@@ -1,6 +1,7 @@
 'use client';
 import { Roboto } from 'next/font/google';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, styled } from '@mui/material/styles';
+import { Typography } from '@mui/material';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -39,16 +40,13 @@ const theme = createTheme({
       desktop: 1200,
     },
   },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
   components: {
     MuiButtonBase: {
-        defaultProps: {
-            sx: {
-               backgroundColor: "#006bff" 
-            },
-        }
+      defaultProps: {
+        sx: {
+          backgroundColor: "#006bff"
+        },
+      }
     }
   }
 });
