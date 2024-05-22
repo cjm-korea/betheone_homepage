@@ -3,14 +3,19 @@ import Button from '@mui/material/Button';
 import { ThemeProvider } from '@emotion/react';
 import theme from '@/theme/theme';
 
-export const PrimaryButton = ({ title }: any) => {
+type primaryButtonTitle = {
+  title: string;
+}
+
+export const PrimaryButton = ({ title }: primaryButtonTitle) => {
   return (
     <ThemeProvider theme={theme}>
       <Button sx={{
         bgcolor: 'primary.main',
         color: 'primary.light',
         width: 'fit-content',
-        px: 4,
+        px: 2.5,
+        py: 1.5,
         ":hover": {
           bgcolor: 'primary.dark'
         }

@@ -2,9 +2,11 @@
 
 import styles from "./page.module.css";
 import { PrimaryButton } from "./_components/PrimaryButton";
-import { Box, Button, styled, Typography } from "@mui/material";
+import { Box, Button, Grid, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import theme from "@/theme/theme";
+import { ImageBox } from "./_components/ImageBox";
+import { Introduce } from "./_components/Introduce";
 
 const StyledImage = styled(Image)`
   width: 100%;
@@ -33,12 +35,11 @@ export default function Home() {
           position: 'absolute',
           color: 'white',
           zIndex: 2,
-          
         }}>
           <Typography
             variant="h4"
             component={'h2'}
-            fontWeight={500}
+            fontWeight={600}
             sx={{
               fontSize: '1.5rem',
               [theme.breakpoints.up('tablet')]: {
@@ -76,8 +77,23 @@ export default function Home() {
           >
             CNC/MCT 공작기계의 혁신적인 부착형 무선 데이터 서버를 소개합니다.
           </Typography>
-          <PrimaryButton title={'알아보기'}/>
+          <PrimaryButton title={'알아보기'} />
         </Box>
+      </Box>
+      <Box
+        sx={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          flexWrap: 'wrap',
+          gap: 2,
+          px: 8,
+          py: 6
+        }}
+      >
+        <Introduce />
+        <ImageBox imagePath="/AND.png" mainText="DNC 가공 및 데이터 용량 추가" subText="Attach Wireless Data Server" />
       </Box>
       <Box sx={{ height: 200 }}>
         asd
