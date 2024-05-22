@@ -1,17 +1,13 @@
 'use client'
 
 import styles from "./page.module.css";
-import { PrimaryButton } from "./_components/PrimaryButton";
-import { Box, Button, Grid, styled, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import theme from "@/theme/theme";
 import { ImageBox } from "./_components/ImageBox";
-import { Introduce } from "./_components/Introduce";
-
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: auto;
-`
+import { Introduce } from "./Introduce";
+import { PrimaryButton } from "./_components/PrimaryButton";
+import { Whyuse } from "./Whyuse";
 
 export default function Home() {
   return (
@@ -80,42 +76,8 @@ export default function Home() {
           <PrimaryButton title={'알아보기'} />
         </Box>
       </Box>
-      <Box
-        sx={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          flexWrap: 'wrap',
-          gap: 2,
-          px: 8,
-          py: 6
-        }}
-      >
-        <Introduce />
-        <ImageBox imagePath="/AND.png" mainText="DNC 가공 및 데이터 용량 추가" subText="Attach Wireless Data Server" />
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
-      <Box sx={{ height: 200 }}>
-        asd
-      </Box>
+      <Introduce />
+      <Whyuse />
       <Box sx={{ height: 200 }}>
         asd
       </Box>
