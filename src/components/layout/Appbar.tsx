@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Slide from "@mui/material/Slide";
 import Image from "next/image";
 import Logopath from "/public/Logo.png";
+import BackgroundImagepath from "/public/background_main.jpg";
 import MainButton from "../MainButton";
 import ProductCard from "../ProductCard";
 import LogoCarousel from "../UserCarousel";
@@ -82,7 +83,7 @@ export default function HideAppBar(props: Props) {
           //   minHeight: "288px",
           height: "400px",
           mt: "40px",
-          backgroundImage: `url('/Background_main.jpg')`,
+          backgroundImage: `url("/background_main.jpg")`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "50% 60%",
           backgroundSize: "cover",
