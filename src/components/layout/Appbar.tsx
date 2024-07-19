@@ -16,6 +16,8 @@ import ProductCard from "../ProductCard";
 import LogoCarousel from "../UserCarousel";
 import BenefitCard from "../BenefitCard";
 import SupporterCarousel from "../SupporterCarousel";
+import ReviewCard from "../ReviewCard";
+import { Grid } from "@mui/material";
 
 interface Props {
   /**
@@ -42,15 +44,32 @@ function HideOnScroll(props: Props) {
   );
 }
 
-const logos: string[] = [
-  "/Logo1.png",
-  "/Logo2.png",
-  "/Logo3.png",
-  "/Logo4.png",
-  "/Logo5.png",
-  "/Logo6.png",
-  "/Logo1.png",
-  "/Logo2.png",
+const reviewCardContent: any = [
+  {
+    company: "바이온(주)",
+    review:
+      "This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis.",
+  },
+  {
+    company: "우정TMS(주)",
+    review:
+      "This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis.",
+  },
+  {
+    company: "에스제이글로벌(주)",
+    review:
+      "This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis.",
+  },
+  {
+    company: "제이앤에이테크",
+    review:
+      "This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis.",
+  },
+  {
+    company: "터닝솔루션",
+    review:
+      "This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis. This is the review content. If the content is too long, it will be truncated with ellipsis.",
+  },
 ];
 
 export default function HideAppBar(props: Props) {
@@ -298,7 +317,33 @@ export default function HideAppBar(props: Props) {
             >
               사용후기
             </Typography>
-            <MainButton sx={{ mt: "24px" }}>자세히 알아보기</MainButton>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                padding: 2,
+              }}
+            >
+              <Grid container spacing={3} justifyContent="center">
+                {reviewCardContent.map(
+                  (
+                    props: { company: string; review: string },
+                    index: React.Key | null | undefined
+                  ) => (
+                    <Grid key={index} item xs={12} sm={12} md={6} lg={6} xl={3}>
+                      <Box display="flex" justifyContent="center">
+                        <ReviewCard
+                          company={props.company}
+                          review={props.review}
+                        />
+                      </Box>
+                    </Grid>
+                  )
+                )}
+              </Grid>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -344,6 +389,7 @@ export default function HideAppBar(props: Props) {
             <Box sx={{ fontSize: "18px", fontWeight: 200, color: "#7c8e9a" }}>
               기술시연 및 설치 문의
             </Box>
+            <MainButton href="https://forms.gle/RNYmpDQi2TsRyzmj7" sx={{ mt: "24px" }}>지금 연락하세요!</MainButton>
           </Box>
         </Box>
       </Box>
