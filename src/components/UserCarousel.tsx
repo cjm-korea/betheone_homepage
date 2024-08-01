@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, styled, keyframes } from "@mui/system";
+import { Typography } from "@mui/material";
 
 const row1 = [
   "/Logo1.png",
@@ -30,12 +31,36 @@ const scrollX = keyframes`
 
 const UserCarousel = () => {
   return (
-    <Box sx={styles.appContainer}>
-      <Box sx={styles.wrapper}>
-        <Box sx={styles.text}>사용 사례</Box>
-        <Box sx={styles.note}>
-          부착형 무선 데이터 서버를 사용해주시는 기업들입니다.
+    <Box
+      sx={{
+        px: "170px",
+        py: "60px",
+        height: "auto",
+        color: "white",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "start",
+        gap: "40px",
+      }}
+    >
+      <Box sx={{
+        width: "100%",
+        height: "fit-content",
+        display: "flex",
+        alignItems: "start",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}>
+        <Box sx={{ display: "flex", flex: 1 }}>
+          <Typography
+            sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
+          >
+            Partners
+          </Typography>
         </Box>
+      </Box>
+      <Box sx={styles.wrapper}>
         <Marquee>
           <MarqueeGroup>
             {row1.map((el, index) => (
@@ -93,22 +118,24 @@ const styles = {
   },
   text: {
     fontSize: "40px",
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: "10px",
     color: "#02203c",
+    width: "fill",
   },
-  note: {
-    fontSize: "18px",
-    fontWeight: 200,
-    marginBottom: "40px",
-    color: "#7c8e9a",
-  },
+  // note: {
+  //   fontSize: "18px",
+  //   fontWeight: 200,
+  //   marginBottom: "40px",
+  //   color: "#7c8e9a",
+  // },
   marquee: {
     display: "flex",
     width: "1200px",
     overflow: "hidden",
     userSelect: "none",
-    maskImage: "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
+    maskImage:
+      "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
     "&:hover": {
       animationPlayState: "paused",
     },
@@ -124,7 +151,8 @@ const Marquee = styled(Box)({
   width: "1200px",
   overflow: "hidden",
   userSelect: "none",
-  maskImage: "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
+  maskImage:
+    "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
   "&:hover": {
     animationPlayState: "paused",
     "& *": {
@@ -141,7 +169,6 @@ const MarqueeGroup = styled(Box)({
   whiteSpace: "nowrap",
   width: "100%",
   animation: `${scrollX} 30s linear infinite`,
-  
 });
 
 const ImageGroup = styled(Box)({

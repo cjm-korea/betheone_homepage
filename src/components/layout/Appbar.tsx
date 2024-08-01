@@ -126,9 +126,6 @@ export default function HideAppBar(props: Props) {
           >
             제조 산업의 문제점을 해결합니다.
           </Typography>
-          <Typography sx={{ color: "white", fontSize: "16px" }}>
-            CNC/MCT 공작기계의 혁신적인 부착형 무선 데이터서버를 소개합니다.
-          </Typography>
           <MainButton>알아보기</MainButton>
         </Box>
       </Box>
@@ -136,6 +133,7 @@ export default function HideAppBar(props: Props) {
         sx={{
           width: "100vw",
           height: "auto",
+          backgroundColor: "#F5F5F7",
         }}
       >
         <Box
@@ -145,28 +143,23 @@ export default function HideAppBar(props: Props) {
             height: "auto",
             color: "white",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            gap: "8rem",
+            alignItems: "start",
+            gap: "40px",
           }}
         >
-          <Box sx={{ display: "flex", flex: 1, flexDirection: "column" }}>
+          <Box sx={{ display: "flex", flex: 1, flexDirection: "row" }}>
             <Typography
               sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
             >
-              부착형 무선 데이터 서버
+              더 빠르고, 간편하고, 정확하게.
             </Typography>
-            <Typography sx={{ color: "black", fontSize: "40px" }}>
-              All New DNC
+            <Typography
+              sx={{ color: "black", fontSize: "40px", opacity: "50%" }}
+            >
+              USB, CF카드 없이 간단하게.
             </Typography>
-            <Typography sx={{ color: "black", fontSize: "16px", mt: "24px" }}>
-              더 이상 케이블과 이동식 저장장치의 사용을 하지 않습니다
-              <br />
-              다양한 공작기계에 사용이 가능하며 간단한 부착으로 즉시 적용
-              가능합니다.
-            </Typography>
-            <MainButton sx={{ mt: "24px" }}>제품 상세보기</MainButton>
           </Box>
           <Box
             sx={{
@@ -189,11 +182,61 @@ export default function HideAppBar(props: Props) {
         sx={{
           width: "100vw",
           height: "auto",
+          backgroundColor: "#F5F5F7",
+        }}
+      >
+        <Box
+          sx={{
+            px: "170px",
+            py: "60px",
+            height: "auto",
+            color: "white",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "start",
+            gap: "40px",
+          }}
+        >
+          <Box sx={{ display: "flex", flex: 1, flexDirection: "row" }}>
+            <Typography
+              sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
+            >
+              가장 쉬운 솔루션.
+            </Typography>
+            <Typography
+              sx={{ color: "black", fontSize: "40px", opacity: "50%" }}
+            >
+              불가능을 가능하게.
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "auto",
+              height: "420px",
+              display: "flex",
+              flex: 1,
+              justifyContent: "center",
+            }}
+          >
+            <ProductCard
+              image={"https://via.placeholder.com/100"}
+              subtitle={"부착형 무선 데이터서버"}
+              maintitle={"DNC 가공 및 데이터 용량 추가"}
+            />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "100vw",
+          height: "auto",
+          backgroundColor: "#F5F5F7"
         }}
       >
         <LogoCarousel />
       </Box>
-      <Box
+      {/* <Box
         sx={{
           width: "100vw",
           height: "auto",
@@ -282,8 +325,8 @@ export default function HideAppBar(props: Props) {
             </Box>
           </Box>
         </Box>
-      </Box>
-      <Box
+      </Box> */}
+      {/* <Box
         sx={{
           width: "100vw",
           height: "auto",
@@ -346,11 +389,12 @@ export default function HideAppBar(props: Props) {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Box> */}
       <Box
         sx={{
           width: "100vw",
           height: "auto",
+          backgroundColor: "#F5F5F7"
         }}
       >
         <Box
@@ -363,7 +407,7 @@ export default function HideAppBar(props: Props) {
             flexDirection: "col",
             justifyContent: "center",
             alignItems: "center",
-            gap: "8rem",
+            // gap: "",
           }}
         >
           <Box
@@ -374,26 +418,35 @@ export default function HideAppBar(props: Props) {
               justifyContent: "center",
               alignItems: "center",
               textAlign: "center",
+              gap: "40px",
             }}
           >
-            <Typography
-              sx={{
-                color: "black",
-                fontSize: "40px",
-                fontWeight: "bold",
-                marginBottom: "24px",
-              }}
+            <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Typography
+                sx={{
+                  color: "black",
+                  fontSize: "40px",
+                  fontWeight: "bold",
+                }}
+              >
+                빠른 연락.
+              </Typography>
+              <Typography
+                sx={{ color: "black", fontSize: "40px", opacity: "50%" }}
+              >
+                기술시연 및 문의.
+              </Typography>
+            </Box>
+            <MainButton
+              href="https://forms.gle/RNYmpDQi2TsRyzmj7"
+              sx={{ mt: "24px" }}
             >
               문의하기
-            </Typography>
-            <Box sx={{ fontSize: "18px", fontWeight: 200, color: "#7c8e9a" }}>
-              기술시연 및 설치 문의
-            </Box>
-            <MainButton href="https://forms.gle/RNYmpDQi2TsRyzmj7" sx={{ mt: "24px" }}>지금 연락하세요!</MainButton>
+            </MainButton>
           </Box>
         </Box>
       </Box>
-      <SupporterCarousel />
+      {/* <SupporterCarousel /> */}
       {/* </Container> */}
     </React.Fragment>
   );
