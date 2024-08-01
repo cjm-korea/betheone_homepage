@@ -18,6 +18,7 @@ import BenefitCard from "../BenefitCard";
 import SupporterCarousel from "../SupporterCarousel";
 import ReviewCard from "../ReviewCard";
 import { Grid } from "@mui/material";
+import ProductCardAND from "../ProductCardAND";
 
 interface Props {
   /**
@@ -118,15 +119,20 @@ export default function HideAppBar(props: Props) {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            gap: "24px",
+            gap: "18px",
           }}
         >
           <Typography
             sx={{ color: "white", fontSize: "40px", fontWeight: "bold" }}
           >
-            제조 산업의 문제점을 해결합니다.
+            단 하나의 가공 솔루션
           </Typography>
-          <MainButton>알아보기</MainButton>
+          <Typography
+            sx={{ color: "white", fontSize: "28px", fontWeight: "bold", opacity: '70%' }}
+          >
+            캐드, 캠, 스마트팩토리, 모니터링 비더원
+          </Typography>
+          {/* <MainButton>알아보기</MainButton> */}
         </Box>
       </Box>
       <Box
@@ -156,11 +162,17 @@ export default function HideAppBar(props: Props) {
               더 빠르고, 간편하고, 정확하게.
             </Typography>
             <Typography
-              sx={{ color: "black", fontSize: "40px", opacity: "50%" }}
+              sx={{
+                color: "black",
+                fontSize: "40px",
+                opacity: "50%",
+                paddingLeft: "8px",
+              }}
             >
               USB, CF카드 없이 간단하게.
             </Typography>
           </Box>
+          {/* <ProductCarousel /> */}
           <Box
             sx={{
               width: "auto",
@@ -168,12 +180,35 @@ export default function HideAppBar(props: Props) {
               display: "flex",
               flex: 1,
               justifyContent: "center",
+              gap: "20px",
             }}
           >
-            <ProductCard
-              image={"https://via.placeholder.com/100"}
-              subtitle={"부착형 무선 데이터서버"}
-              maintitle={"DNC 가공 및 데이터 용량 추가"}
+            <ProductCardAND
+              title="AND for RS232"
+              subtitle="놀라움은 구형 기계부터."
+              imageSrc="https://via.placeholder.com/100"
+              colorconcept="black"
+            />
+
+            <ProductCardAND
+              title="AND for LAN"
+              subtitle="한 단계 더 나아간 인프라."
+              imageSrc="https://via.placeholder.com/100"
+              colorconcept="black"
+            />
+
+            <ProductCardAND
+              title="AND for RS232"
+              subtitle="작업을 가볍게."
+              imageSrc="https://via.placeholder.com/100"
+              colorconcept="white"
+            />
+
+            <ProductCardAND
+              title="AND for LAN"
+              subtitle="또 다른 경쟁력."
+              imageSrc="https://via.placeholder.com/100"
+              colorconcept="white"
             />
           </Box>
         </Box>
@@ -205,7 +240,12 @@ export default function HideAppBar(props: Props) {
               가장 쉬운 솔루션.
             </Typography>
             <Typography
-              sx={{ color: "black", fontSize: "40px", opacity: "50%" }}
+              sx={{
+                color: "black",
+                fontSize: "40px",
+                opacity: "50%",
+                paddingLeft: "8px",
+              }}
             >
               불가능을 가능하게.
             </Typography>
@@ -217,12 +257,33 @@ export default function HideAppBar(props: Props) {
               display: "flex",
               flex: 1,
               justifyContent: "center",
+              flexDirection: "row",
+              gap: '20px'
             }}
           >
             <ProductCard
-              image={"https://via.placeholder.com/100"}
-              subtitle={"부착형 무선 데이터서버"}
-              maintitle={"DNC 가공 및 데이터 용량 추가"}
+              imageSrc={"https://via.placeholder.com/100"}
+              subtitle={"어디서나 완벽하게."}
+              title={"부착형 무선 데이터서버"}
+              colorConcept="black"
+            />
+            <ProductCard
+              imageSrc={"https://via.placeholder.com/100"}
+              subtitle={"항상 정확하게."}
+              title={"데이터 모니터링 & 공구 파손 감지"}
+              colorConcept="black"
+            />
+            <ProductCard
+              imageSrc={"https://via.placeholder.com/100"}
+              subtitle={"언제나 합리적인 선택."}
+              title={"Intelli CMS CAD"}
+              colorConcept="white"
+            />
+            <ProductCard
+              imageSrc={"https://via.placeholder.com/100"}
+              subtitle={"무엇이든 간단하게."}
+              title={"S-CAM"}
+              colorConcept="white"
             />
           </Box>
         </Box>
@@ -231,7 +292,7 @@ export default function HideAppBar(props: Props) {
         sx={{
           width: "100vw",
           height: "auto",
-          backgroundColor: "#F5F5F7"
+          backgroundColor: "#F5F5F7",
         }}
       >
         <LogoCarousel />
@@ -394,7 +455,7 @@ export default function HideAppBar(props: Props) {
         sx={{
           width: "100vw",
           height: "auto",
-          backgroundColor: "#F5F5F7"
+          backgroundColor: "#F5F5F7",
         }}
       >
         <Box
@@ -407,7 +468,6 @@ export default function HideAppBar(props: Props) {
             flexDirection: "col",
             justifyContent: "center",
             alignItems: "center",
-            // gap: "",
           }}
         >
           <Box

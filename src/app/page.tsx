@@ -7,11 +7,11 @@ export default function Home() {
     <Container maxWidth="lg">
       <Box
         sx={{
-          my: 4,
+          mㅅ: 4,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         {/* <Typography variant="h4" component="h1" sx={{ mb: 2 }}>

@@ -44,14 +44,16 @@ const UserCarousel = () => {
         gap: "40px",
       }}
     >
-      <Box sx={{
-        width: "100%",
-        height: "fit-content",
-        display: "flex",
-        alignItems: "start",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: "fit-content",
+          display: "flex",
+          alignItems: "start",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
         <Box sx={{ display: "flex", flex: 1 }}>
           <Typography
             sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
@@ -60,7 +62,16 @@ const UserCarousel = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={styles.wrapper}>
+      <Box
+        sx={{
+          width: "100%",
+          height: "fit-content",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
         <Marquee>
           <MarqueeGroup>
             {row1.map((el, index) => (
@@ -78,14 +89,18 @@ const UserCarousel = () => {
           </MarqueeGroup>
         </Marquee>
         <Marquee>
-          <MarqueeGroup sx={styles.reverseAnimation}>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
             {row2.map((el, index) => (
               <ImageGroup key={index}>
                 <Image src={el} />
               </ImageGroup>
             ))}
           </MarqueeGroup>
-          <MarqueeGroup sx={styles.reverseAnimation}>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
             {row2.map((el, index) => (
               <ImageGroup key={index}>
                 <Image src={el} />
@@ -99,60 +114,48 @@ const UserCarousel = () => {
 };
 
 const styles = {
-  appContainer: {
-    width: "100vw",
-    height: "auto",
-    color: "#000000",
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  wrapper: {
-    width: "100%",
-    height: "fit-content",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  text: {
-    fontSize: "40px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-    color: "#02203c",
-    width: "fill",
-  },
-  // note: {
-  //   fontSize: "18px",
-  //   fontWeight: 200,
-  //   marginBottom: "40px",
-  //   color: "#7c8e9a",
+  // appContainer: {
+  //   width: "100vw",
+  //   height: "auto",
+  //   color: "#000000",
+  //   position: "relative",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
   // },
-  marquee: {
-    display: "flex",
-    width: "1200px",
-    overflow: "hidden",
-    userSelect: "none",
-    maskImage:
-      "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
-    "&:hover": {
-      animationPlayState: "paused",
-    },
-  },
-  reverseAnimation: {
-    animationDirection: "reverse",
-    animationDelay: "-3s",
-  },
+  // wrapper: {
+  //   width: "100%",
+  //   height: "fit-content",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   flexDirection: "column",
+  // },
+  // text: {},
+  // marquee: {
+  //   display: "flex",
+  //   width: "1200px",
+  //   overflow: "hidden",
+  //   userSelect: "none",
+  //   maskImage:
+  //     "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
+  //   "&:hover": {
+  //     animationPlayState: "paused",
+  //   },
+  // },
+  // reverseAnimation: {
+  //   animationDirection: "reverse",
+  //   animationDelay: "-3s",
+  // },
 };
 
 const Marquee = styled(Box)({
   display: "flex",
-  width: "1200px",
+  width: "90%",
   overflow: "hidden",
   userSelect: "none",
   maskImage:
-    "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
+    "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 5%, hsl(0 0% 0% / 1) 95%, hsl(0 0% 0% / 0))",
   "&:hover": {
     animationPlayState: "paused",
     "& *": {

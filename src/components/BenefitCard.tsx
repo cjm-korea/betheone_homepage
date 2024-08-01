@@ -3,7 +3,7 @@ import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { styled } from "@mui/system";
 import Link from "next/link";
 import { SxProps, Theme } from "@mui/system";
-import theme from "@/theme";
+import theme from "@/theme/theme";
 
 interface BenefitCardProps {
   href?: string;
