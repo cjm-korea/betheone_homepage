@@ -19,6 +19,7 @@ import SupporterCarousel from "../SupporterCarousel";
 import ReviewCard from "../ReviewCard";
 import { Grid } from "@mui/material";
 import ProductCardAND from "../ProductCardAND";
+import ProductCarousel from "../ProductANDCarousel";
 
 interface Props {
   /**
@@ -128,11 +129,15 @@ export default function HideAppBar(props: Props) {
             단 하나의 가공 솔루션
           </Typography>
           <Typography
-            sx={{ color: "white", fontSize: "28px", fontWeight: "bold", opacity: '70%' }}
+            sx={{
+              color: "white",
+              fontSize: "28px",
+              fontWeight: "bold",
+              opacity: "70%",
+            }}
           >
             캐드, 캠, 스마트팩토리, 모니터링 비더원
           </Typography>
-          {/* <MainButton>알아보기</MainButton> */}
         </Box>
       </Box>
       <Box
@@ -172,45 +177,7 @@ export default function HideAppBar(props: Props) {
               USB, CF카드 없이 간단하게.
             </Typography>
           </Box>
-          {/* <ProductCarousel /> */}
-          <Box
-            sx={{
-              width: "auto",
-              height: "420px",
-              display: "flex",
-              flex: 1,
-              justifyContent: "center",
-              gap: "20px",
-            }}
-          >
-            <ProductCardAND
-              title="AND for RS232"
-              subtitle="놀라움은 구형 기계부터."
-              imageSrc="https://via.placeholder.com/100"
-              colorconcept="black"
-            />
-
-            <ProductCardAND
-              title="AND for LAN"
-              subtitle="한 단계 더 나아간 인프라."
-              imageSrc="https://via.placeholder.com/100"
-              colorconcept="black"
-            />
-
-            <ProductCardAND
-              title="AND for RS232"
-              subtitle="작업을 가볍게."
-              imageSrc="https://via.placeholder.com/100"
-              colorconcept="white"
-            />
-
-            <ProductCardAND
-              title="AND for LAN"
-              subtitle="또 다른 경쟁력."
-              imageSrc="https://via.placeholder.com/100"
-              colorconcept="white"
-            />
-          </Box>
+          <ProductCarousel />
         </Box>
       </Box>
       <Box
@@ -258,7 +225,7 @@ export default function HideAppBar(props: Props) {
               flex: 1,
               justifyContent: "center",
               flexDirection: "row",
-              gap: '20px'
+              gap: "20px",
             }}
           >
             <ProductCard
