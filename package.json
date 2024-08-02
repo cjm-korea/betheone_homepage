@@ -16,6 +16,7 @@
     "@mui/icons-material": "next",
     "@mui/material": "next",
     "@mui/material-nextjs": "next",
+    "@types/react-slick": "^0.23.13",
     "keen-slider": "^6.8.6",
     "next": "latest",
     "react": "latest",
