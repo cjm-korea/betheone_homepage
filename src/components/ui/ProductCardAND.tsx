@@ -3,12 +3,15 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import Link from "next/link";
+import { Url } from "next/dist/shared/lib/router/router";
 
 interface ProductCardANDProps {
   title: string;
   subtitle: string;
   imageSrc: string;
   colorconcept: "white" | "black";
+  href: Url;
 }
 
 const StyledBox = styled(Box)(
@@ -22,9 +25,9 @@ const StyledBox = styled(Box)(
     boxShadow: "none",
     "&:hover": {
       boxShadow: "2px 4px 12px #00000014",
-      transform: 'scale(1.01)',
+      transform: "scale(1.01)",
     },
-    overflow: 'hidden'
+    overflow: "hidden",
   })
 );
 
@@ -56,24 +59,27 @@ const ProductCardAND: React.FC<ProductCardANDProps> = ({
   subtitle,
   imageSrc,
   colorconcept,
+  href,
 }) => {
   return (
-    <StyledBox colorconcept={colorconcept}>
-      <StyledUpperBox>
-        <Typography
-          variant="h3"
-          sx={{ fontSize: 16, fontWeight: "regular", marginBottom: 1 }}
-        >
-          {title}
-        </Typography>
-        <Typography variant="h6" sx={{ fontSize: 28, fontWeight: "bold" }}>
-          {subtitle}
-        </Typography>
-      </StyledUpperBox>
-      <StyledLowerBox>
-        <StyledImage src={imageSrc} alt={title} />
-      </StyledLowerBox>
-    </StyledBox>
+    <Link href={href} style={{ textDecoration: 'none' }}>
+      <StyledBox colorconcept={colorconcept}>
+        <StyledUpperBox>
+          <Typography
+            variant="h3"
+            sx={{ fontSize: 16, fontWeight: "regular", marginBottom: 1 }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="h6" sx={{ fontSize: 28, fontWeight: "bold" }}>
+            {subtitle}
+          </Typography>
+        </StyledUpperBox>
+        <StyledLowerBox>
+          <StyledImage src={imageSrc} alt={title} />
+        </StyledLowerBox>
+      </StyledBox>
+    </Link>
   );
 };
 

@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import { Box, styled, keyframes } from "@mui/system";
 import { Typography } from "@mui/material";
@@ -111,42 +113,6 @@ const UserCarousel = () => {
       </Box>
     </Box>
   );
-};
-
-const styles = {
-  // appContainer: {
-  //   width: "100vw",
-  //   height: "auto",
-  //   color: "#000000",
-  //   position: "relative",
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
-  // wrapper: {
-  //   width: "100%",
-  //   height: "fit-content",
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   flexDirection: "column",
-  // },
-  // text: {},
-  // marquee: {
-  //   display: "flex",
-  //   width: "1200px",
-  //   overflow: "hidden",
-  //   userSelect: "none",
-  //   maskImage:
-  //     "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 10%, hsl(0 0% 0% / 1) 90%, hsl(0 0% 0% / 0))",
-  //   "&:hover": {
-  //     animationPlayState: "paused",
-  //   },
-  // },
-  // reverseAnimation: {
-  //   animationDirection: "reverse",
-  //   animationDelay: "-3s",
-  // },
 };
 
 const Marquee = styled(Box)({

@@ -43,7 +43,7 @@ export const Footer = () => {
           <Typography sx={{
             opacity: 0.65,
             fontSize: '15px'
-          }}>COPYRIGHT© 2024 BeTheOne. ALL RIGHT RESERVED.</Typography>
+          }}>COPYRIGHT© {new Date().getFullYear()}. BETHEONE. ALL RIGHT RESERVED.</Typography>
         </Box>
       </Box>
     </Box>

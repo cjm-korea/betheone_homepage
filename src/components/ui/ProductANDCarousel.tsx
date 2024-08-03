@@ -7,7 +7,6 @@ import { styled } from "@mui/system";
 import ProductCardAND from "./ProductCardAND";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 
-// StyledSlider를 styled로 스타일링
 const StyledSlider = styled(
   forwardRef<Slider, any>((props, ref) => <Slider ref={ref} {...props} />)
 )({
@@ -15,7 +14,6 @@ const StyledSlider = styled(
   overflow: "visible",
 });
 
-// 화살표 버튼을 포함한 상위 Box 스타일
 const CarouselContainer = styled(Box)({
   width: "100vw",
   height: "500px",
@@ -28,7 +26,6 @@ const CarouselContainer = styled(Box)({
   },
 });
 
-// 화살표 버튼 스타일
 const ArrowButton = styled(Box)({
   width: "48px",
   height: "48px",
@@ -57,7 +54,7 @@ const settings = {
   arrows: false,
 };
 
-const ProductCarousel: React.FC = () => {
+const ProductANDCarousel: React.FC = () => {
   const slider = React.useRef<Slider>(null);
 
   return (
@@ -70,38 +67,34 @@ const ProductCarousel: React.FC = () => {
         <ArrowLeft sx={{ width: "48px", height: "48px" }} />
       </ArrowButton>
       <StyledSlider {...settings} ref={slider}>
-        <Box>
           <ProductCardAND
             title="AND for RS232"
             subtitle="놀라움은 구형 기계부터."
             imageSrc="https://via.placeholder.com/100"
             colorconcept="black"
+            href={"/and"}
           />
-        </Box>
-        <Box>
           <ProductCardAND
             title="AND for LAN"
             subtitle="한 단계 더 높아진 인프라."
             imageSrc="https://via.placeholder.com/100"
             colorconcept="black"
+            href={"/and"}
           />
-        </Box>
-        <Box>
           <ProductCardAND
             title="AND for RS232"
             subtitle="작업을 가볍게."
             imageSrc="https://via.placeholder.com/100"
             colorconcept="white"
+            href={"/and"}
           />
-        </Box>
-        <Box>
           <ProductCardAND
             title="AND for LAN"
             subtitle="또 다른 경쟁력."
             imageSrc="https://via.placeholder.com/100"
             colorconcept="white"
+            href={"/and"}
           />
-        </Box>
       </StyledSlider>
       <ArrowButton
         className="arrow"
@@ -114,4 +107,4 @@ const ProductCarousel: React.FC = () => {
   );
 };
 
-export default ProductCarousel;
+export default ProductANDCarousel;
