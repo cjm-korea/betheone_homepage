@@ -53,10 +53,19 @@ jobs:
           docker buildx inspect --bootstrap
           docker buildx build --platform linux/amd64 -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_IMAGE:latest --push .
 
+      - name: List ECS Clusters
+        uses: imehedi/actions-awscli-v2@v2
+        with:
+          args: ecs list-clusters --region ${{ env.AWS_DEFAULT_REGION }}
+        env:
+          AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Deploy to ECS
         uses: imehedi/actions-awscli-v2@latest
         env:
           CLUSTER_NAME: ${{ secrets.ECS_CLUSTER }}
           SERVICE_NAME: ${{ secrets.ECS_SERVICE }}
         with: 
-          args: ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment
+          args: ecs update-service --cluster ${{ env.CLUSTER_NAME }} --service ${{ env.SERVICE_NAME }} --force-new-deployment
