@@ -21,15 +21,17 @@ interface Props {
 
 function HideOnScroll(props: Props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
+
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
 
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide
+      appear={true}
+      direction="down"
+      in={!trigger}
+    >
       {children}
     </Slide>
   );
@@ -42,16 +44,24 @@ export default function HideAppBar(props: Props) {
       <HideOnScroll {...props}>
         <AppBar
           elevation={1}
-          sx={{ py: "20px", px: "170px", backgroundColor: "white" }}
+          sx={{
+            width: "fit-content",
+            py: "20px",
+            px: {
+              xs: "30px",
+              md: "170px",
+            },
+            backgroundColor: "white",
+          }}
         >
-          <Toolbar>
+          <Toolbar sx={{ width: "fit-content" }}>
             <Link href="/">
-                <Image src={Logopath} alt="Logo" />
+              <Image src={Logopath} alt="Logo" />
             </Link>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      <Toolbar sx={{ height: '107px' }}/>
+      <Toolbar sx={{ width: "fit-content" }} />
     </React.Fragment>
   );
 }

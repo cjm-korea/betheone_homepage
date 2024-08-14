@@ -6,21 +6,26 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import ProductCardAND from "./ProductCardAND";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
+import LAN_use1 from "@/images/LAN_use1.png";
+import LAN_use2 from "@/images/LAN_use2.png";
+import RS232_use1 from "@/images/RS232_use1.png";
+import RS232_use2 from "@/images/RS232_use2.png";
 
 const StyledSlider = styled(
   forwardRef<Slider, any>((props, ref) => <Slider ref={ref} {...props} />)
 )({
   position: "relative",
-  overflow: "visible",
+  overflow: "visible"
 });
 
 const CarouselContainer = styled(Box)({
-  width: "100vw",
-  height: "500px",
+  width: "100%",
+  height: "fit",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   position: "relative",
+  overflowX: 'visible',
   "&:hover .arrow": {
     opacity: 1,
   },
@@ -52,6 +57,29 @@ const settings = {
   slidesToScroll: 1,
   swipeToSlide: true,
   arrows: false,
+  responsive: [
+    {
+      breakpoint: 1950,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 1550,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    }
+  ],
 };
 
 const ProductANDCarousel: React.FC = () => {
@@ -61,7 +89,7 @@ const ProductANDCarousel: React.FC = () => {
     <CarouselContainer>
       <ArrowButton
         className="arrow"
-        sx={{ left: "3%" }}
+        sx={{ left: "-3%" }}
         onClick={() => slider.current?.slickPrev()}
       >
         <ArrowLeft sx={{ width: "48px", height: "48px" }} />
@@ -70,35 +98,35 @@ const ProductANDCarousel: React.FC = () => {
           <ProductCardAND
             title="AND for RS232"
             subtitle="놀라움은 구형 기계부터."
-            imageSrc="https://via.placeholder.com/100"
+            imageSrc={RS232_use1.src.toString()}
             colorconcept="black"
             href={"/and"}
           />
           <ProductCardAND
             title="AND for LAN"
-            subtitle="한 단계 더 높아진 인프라."
-            imageSrc="https://via.placeholder.com/100"
+            subtitle="더 빨라진 인프라."
+            imageSrc={LAN_use1.src.toString()}
             colorconcept="black"
             href={"/and"}
           />
           <ProductCardAND
             title="AND for RS232"
             subtitle="작업을 가볍게."
-            imageSrc="https://via.placeholder.com/100"
+            imageSrc={RS232_use2.src.toString()}
             colorconcept="white"
             href={"/and"}
           />
           <ProductCardAND
             title="AND for LAN"
             subtitle="또 다른 경쟁력."
-            imageSrc="https://via.placeholder.com/100"
+            imageSrc={LAN_use2.src.toString()}
             colorconcept="white"
             href={"/and"}
           />
       </StyledSlider>
       <ArrowButton
         className="arrow"
-        sx={{ right: "13%" }}
+        sx={{ right: "-3%" }}
         onClick={() => slider.current?.slickNext()}
       >
         <ArrowRight sx={{ width: "48px", height: "48px" }} />

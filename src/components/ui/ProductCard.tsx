@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import { Box, Typography } from "@mui/material";
@@ -21,8 +21,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <Box
       sx={{
-        width: "480px",
-        height: "500px",
+        width: {
+          xs: "320px",
+          md: "480px",
+        },
+        height: {
+          xs: "340px",
+          md: "500px",
+        },
         display: "flex",
         flexDirection: "column",
         borderRadius: "18px",
@@ -44,14 +50,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
-          p: '30px',
-          height: 'auto'
+          p: "30px",
+          height: "auto",
         }}
       >
         <Typography
           variant="h3"
           sx={{
-            fontSize: 16,
+            fontSize: {
+              xs: 14,
+              md: 16,
+            },
             fontWeight: "regular",
             marginBottom: 1,
           }}
@@ -61,8 +70,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <Typography
           variant="h6"
           sx={{
-            fontSize: 28,
-            fontWeight: "bold"
+            fontSize: {
+              xs: 24,
+              md: 28,
+            },
+            fontWeight: "bold",
           }}
         >
           {subtitle}

@@ -1,13 +1,52 @@
 import React from "react";
 import { Box, styled, keyframes } from "@mui/system";
 
+import AJTech from "@/images/company/AJTech.png"
+import Bion from "@/images/company/Bion.png"
+import ConnectFactory from "@/images/company/ConnectFactory.png"
+import Datagobongbab from "@/images/company/Datagobongbab.png"
+import FactoryDoctor from "@/images/company/FactoryDoctor.png"
+import FindMachine from "@/images/company/FindMachine.png"
+import Future from "@/images/company/Future.png"
+import Hinols from "@/images/company/Hinols.png"
+import IdeaPlus from "@/images/company/IdeaPlus.png"
+import Juho from "@/images/company/Juho.png"
+
+import KHKorea from "@/images/company/KHKorea.png"
+import Maketen from "@/images/company/Maketen.png"
+import Mungil from "@/images/company/Mungil.png"
+import Royal from "@/images/company/Royal.png"
+import SafePro from "@/images/company/SafePro.png"
+import Sbhe from "@/images/company/Sbhe.png"
+import Sinsung from "@/images/company/Sinsung.png"
+import TurningSolution from "@/images/company/TurningSolution.png"
+import WoojungTMS from "@/images/company/WoojungTMS.png"
+import YoungGwang from "@/images/company/YoungGwang.png"
+
 const row1 = [
-  "/Logo1.png",
-  "/Logo2.png",
-  "/Logo3.png",
-  "/Logo4.png",
-  "/Logo5.png",
-  "/Logo6.png",
+  AJTech.src.toString(),
+  Bion.src.toString(),
+  ConnectFactory.src.toString(),
+  Datagobongbab.src.toString(),
+  FactoryDoctor.src.toString(),
+  FindMachine.src.toString(),
+  Future.src.toString(),
+  Hinols.src.toString(),
+  IdeaPlus.src.toString(),
+  Juho.src.toString(),
+];
+
+const row2 = [
+  KHKorea.src.toString(),
+  Maketen.src.toString(),
+  Mungil.src.toString(),
+  Royal.src.toString(),
+  SafePro.src.toString(),
+  Sbhe.src.toString(),
+  Sinsung.src.toString(),
+  TurningSolution.src.toString(),
+  WoojungTMS.src.toString(),
+  YoungGwang.src.toString(),
 ];
 
 const scrollX = keyframes`
@@ -33,7 +72,7 @@ const SupporterCarousel = () => {
             ))}
           </MarqueeGroup>
           <MarqueeGroup>
-            {row1.map((el, index) => (
+            {row2.map((el, index) => (
               <ImageGroup key={index}>
                 <Image src={el} />
               </ImageGroup>

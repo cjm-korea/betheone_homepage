@@ -12,7 +12,10 @@ export const Footer = () => {
     >
       <Box
         sx={{
-          px: "170px",
+          px: {
+            xs: "30px",
+            md: "170px",
+          },
           py: "20px",
           height: "auto",
           color: "white",

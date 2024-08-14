@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
+import theme from "@/theme/theme";
 
 interface ProductCardANDProps {
   title: string;
@@ -14,20 +15,24 @@ interface ProductCardANDProps {
   href: Url;
 }
 
-const StyledBox = styled(Box)(
-  ({ colorconcept }: { colorconcept: "white" | "black" }) => ({
-    width: 400,
+const StyledBox = styled(Box)<{ colorconcept: "white" | "black" }>(
+  ({ theme, colorconcept }) => ({
+    width: 400, // 기본 width 설정
     height: 500,
     backgroundColor: colorconcept === "white" ? "white" : "black",
     color: colorconcept === "white" ? "black" : "white",
     borderRadius: "18px",
     transition: "all .3s cubic-bezier(0,0,.5,1)",
     boxShadow: "none",
+    overflow: "hidden",
     "&:hover": {
       boxShadow: "2px 4px 12px #00000014",
       transform: "scale(1.01)",
     },
-    overflow: "hidden",
+    [theme.breakpoints.down("md")]: {
+      width: 330,
+      height: 380,
+    },
   })
 );
 
@@ -62,16 +67,32 @@ const ProductCardAND: React.FC<ProductCardANDProps> = ({
   href,
 }) => {
   return (
-    <Link href={href} style={{ textDecoration: 'none' }}>
+    <Link href={'/'} style={{ textDecoration: "none" }}>
       <StyledBox colorconcept={colorconcept}>
         <StyledUpperBox>
           <Typography
             variant="h3"
-            sx={{ fontSize: 16, fontWeight: "regular", marginBottom: 1 }}
+            sx={{
+              fontSize: {
+                xs: 14,
+                md: 16,
+              },
+              fontWeight: "regular",
+              marginBottom: 1,
+            }}
           >
             {title}
           </Typography>
-          <Typography variant="h6" sx={{ fontSize: 28, fontWeight: "bold" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontSize: {
+                xs: 24,
+                md: 28,
+              },
+              fontWeight: "bold",
+            }}
+          >
             {subtitle}
           </Typography>
         </StyledUpperBox>

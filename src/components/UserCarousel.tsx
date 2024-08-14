@@ -1,25 +1,58 @@
-'use client'
+"use client";
 
 import React from "react";
 import { Box, styled, keyframes } from "@mui/system";
 import { Typography } from "@mui/material";
 
+import AJTech from "@/images/company/AJTech.png"
+import Bion from "@/images/company/Bion.png"
+import ConnectFactory from "@/images/company/ConnectFactory.png"
+import Datagobongbab from "@/images/company/Datagobongbab.png"
+import FactoryDoctor from "@/images/company/FactoryDoctor.png"
+import FindMachine from "@/images/company/FindMachine.png"
+import Future from "@/images/company/Future.png"
+import Hinols from "@/images/company/Hinols.png"
+import IdeaPlus from "@/images/company/IdeaPlus.png"
+import Juho from "@/images/company/Juho.png"
+
+import KHKorea from "@/images/company/KHKorea.png"
+import Maketen from "@/images/company/Maketen.png"
+import Mungil from "@/images/company/Mungil.png"
+import Royal from "@/images/company/Royal.png"
+import SafePro from "@/images/company/SafePro.png"
+import Sbhe from "@/images/company/Sbhe.png"
+import Sinsung from "@/images/company/Sinsung.png"
+import TurningSolution from "@/images/company/TurningSolution.png"
+import WoojungTMS from "@/images/company/WoojungTMS.png"
+import YoungGwang from "@/images/company/YoungGwang.png"
+
 const row1 = [
-  "/Logo1.png",
-  "/Logo2.png",
-  "/Logo3.png",
-  "/Logo4.png",
-  "/Logo5.png",
-  "/Logo6.png",
+  AJTech.src.toString(),
+  Bion.src.toString(),
+  ConnectFactory.src.toString(),
+  Datagobongbab.src.toString(),
+  FactoryDoctor.src.toString(),
+  FindMachine.src.toString(),
+  Future.src.toString(),
 ];
 
 const row2 = [
-  "/Logo1.png",
-  "/Logo2.png",
-  "/Logo3.png",
-  "/Logo4.png",
-  "/Logo5.png",
-  "/Logo6.png",
+  Hinols.src.toString(),
+  IdeaPlus.src.toString(),
+  Juho.src.toString(),
+  KHKorea.src.toString(),
+  Maketen.src.toString(),
+  Mungil.src.toString(),
+  Royal.src.toString(),
+];
+
+const row3 = [
+  SafePro.src.toString(),
+  Sbhe.src.toString(),
+  Sinsung.src.toString(),
+  TurningSolution.src.toString(),
+  WoojungTMS.src.toString(),
+  YoungGwang.src.toString(),
 ];
 
 const scrollX = keyframes`
@@ -35,7 +68,10 @@ const UserCarousel = () => {
   return (
     <Box
       sx={{
-        px: "170px",
+        px: {
+          xs: "10px",
+          md: "170px",
+        },
         py: "60px",
         height: "auto",
         color: "white",
@@ -54,11 +90,22 @@ const UserCarousel = () => {
           alignItems: "start",
           justifyContent: "center",
           flexDirection: "column",
+          px: {
+            xs: "20px",
+            sm: "20px",
+          },
         }}
       >
         <Box sx={{ display: "flex", flex: 1 }}>
           <Typography
-            sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
+            sx={{
+              color: "black",
+              fontSize: {
+                xs: "24px",
+                md: "40px",
+              },
+              fontWeight: "bold",
+            }}
           >
             Partners
           </Typography>
@@ -110,6 +157,26 @@ const UserCarousel = () => {
             ))}
           </MarqueeGroup>
         </Marquee>
+        <Marquee>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
+            {row3.map((el, index) => (
+              <ImageGroup key={index}>
+                <Image src={el} />
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
+            {row3.map((el, index) => (
+              <ImageGroup key={index}>
+                <Image src={el} />
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+        </Marquee>
       </Box>
     </Box>
   );
@@ -136,7 +203,7 @@ const MarqueeGroup = styled(Box)({
   alignItems: "center",
   justifyContent: "space-around",
   whiteSpace: "nowrap",
-  width: "100%",
+  width: "120%",
   animation: `${scrollX} 30s linear infinite`,
 });
 
@@ -147,12 +214,19 @@ const ImageGroup = styled(Box)({
   padding: "calc(clamp(10rem, 1rem + 30vmin, 30rem) / 10)",
 });
 
-const Image = styled("img")({
+const Image = styled("img")(({ theme }) => ({
   objectFit: "contain",
-  width: "100%",
-  height: "100%",
   aspectRatio: "16/9",
-  padding: "2px 5px",
-});
+  [theme.breakpoints.down("lg")]: {
+    padding: 0,
+    width: "32px",
+    height: "100%"
+  },
+  [theme.breakpoints.up("lg")]: {
+    padding: "2px 5px",
+    width: "100%",
+    height: "100%"
+  },
+}));
 
 export default UserCarousel;

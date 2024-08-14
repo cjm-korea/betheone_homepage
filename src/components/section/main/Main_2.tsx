@@ -15,7 +15,10 @@ export const Main_2 = () => {
     >
       <Box
         sx={{
-          px: "170px",
+          px: {
+            xs: "30px",
+            md: "170px",
+          },
           py: "60px",
           height: "auto",
           color: "white",
@@ -23,21 +26,50 @@ export const Main_2 = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "start",
-          gap: "40px",
+          gap: {
+            xs: "10px",
+            md: "40px"
+          },
         }}
       >
-        <Box sx={{ display: "flex", flex: 1, flexDirection: "row" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flex: 1,
+            flexDirection: {
+              xs: "column",
+              md: "row",
+            },
+            pb: {
+              xs: '10px',
+              md: 0
+            }
+          }}
+        >
           <Typography
-            sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
+            sx={{
+              color: "black",
+              fontSize: {
+                xs: "24px",
+                md: "40px",
+              },
+              fontWeight: "bold",
+            }}
           >
             더 빠르고, 간편하고, 정확하게.
           </Typography>
           <Typography
             sx={{
               color: "black",
-              fontSize: "40px",
+              fontSize: {
+                xs: "24px",
+                md: "40px",
+              },
               opacity: "50%",
-              paddingLeft: "8px",
+              paddingLeft: {
+                xs: 0,
+                md: "8px",
+              },
             }}
           >
             USB, CF카드 없이 간단하게.
