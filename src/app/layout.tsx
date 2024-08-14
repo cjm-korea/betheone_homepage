@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "스마트팩토리 비더원",
   description: "가장 빠르고 정확한 제조 솔루션 캐드, 캠, 스마트팩토리, 모니터링 서비스를 소개합니다.",
   keywords: "제조 솔루션, 캐드, 캠, 스마트팩토리, 모니터링",
-  icons: {
-    icon: "/betheone_icon.png"
-  }
+  // icons: {
+    // icon: "/betheone_icon.png"
+  // }
 }
 
 export default function RootLayout(props: { children: React.ReactNode }) {
