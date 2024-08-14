@@ -54,7 +54,7 @@ jobs:
           docker buildx build --platform linux/amd64 -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_IMAGE:latest --push .
 
       - name: List ECS Clusters
-        uses: imehedi/actions-awscli-v2@v2
+        uses: imehedi/actions-awscli-v2@latest
         with:
           args: ecs list-clusters --region ${{ env.AWS_DEFAULT_REGION }}
         env:
