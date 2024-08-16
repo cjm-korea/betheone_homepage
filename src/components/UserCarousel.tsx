@@ -55,6 +55,26 @@ const row3 = [
   '영광테크',
 ];
 
+const row1_m = [
+  '에이앤제이테크',
+  '(주)바이온',
+  '(주)팩토리닥터',
+  '(주)메이크텐',
+];
+
+const row2_m = [
+  '(주)주호레포츠',
+  '케이에이치코리아',
+  '신성나노텍',
+];
+
+const row3_m = [
+  '(주)우정티엠에스',
+  '영광테크',
+  '(주)명일정밀',
+  '(주)퓨쳐테크',
+];
+
 const scrollX = keyframes`
   from {
     transform: translateX(0);
@@ -70,7 +90,7 @@ const UserCarousel = () => {
       sx={{
         px: {
           xs: "10px",
-          md: "170px",
+          lg: "170px",
         },
         py: "60px",
         height: "auto",
@@ -115,7 +135,7 @@ const UserCarousel = () => {
         sx={{
           width: "100%",
           height: "fit-content",
-          display: "flex",
+          display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'flex' },
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
@@ -125,22 +145,18 @@ const UserCarousel = () => {
           <MarqueeGroup>
             {row1.map((el, index) => (
               <ImageGroup key={index}>
-                {/* <Image src={el} > */}
                 <Typography sx={{ color: 'black' }}>
                   {el}
                 </Typography>
-                {/* </Image> */}
               </ImageGroup>
             ))}
           </MarqueeGroup>
           <MarqueeGroup>
             {row1.map((el, index) => (
               <ImageGroup key={index}>
-                {/* <Image src={el} > */}
                 <Typography sx={{ color: 'black' }}>
                   {el}
                 </Typography>
-                {/* </Image> */}
               </ImageGroup>
             ))}
           </MarqueeGroup>
@@ -151,7 +167,6 @@ const UserCarousel = () => {
           >
             {row2.map((el, index) => (
               <ImageGroup key={index}>
-                {/* <Image src={el} /> */}
                 <Typography sx={{ color: 'black' }}>
                   {el}
                 </Typography>
@@ -163,7 +178,6 @@ const UserCarousel = () => {
           >
             {row2.map((el, index) => (
               <ImageGroup key={index}>
-                {/* <Image src={el} /> */}
                 <Typography sx={{ color: 'black' }}>
                   {el}
                 </Typography>
@@ -177,7 +191,6 @@ const UserCarousel = () => {
           >
             {row3.map((el, index) => (
               <ImageGroup key={index}>
-                {/* <Image src={el} /> */}
                 <Typography sx={{ color: 'black' }}>
                   {el}
                 </Typography>
@@ -189,7 +202,85 @@ const UserCarousel = () => {
           >
             {row3.map((el, index) => (
               <ImageGroup key={index}>
-                {/* <Image src={el} /> */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+        </Marquee>
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: "fit-content",
+          display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'flex', xl: 'none' },
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Marquee>
+          <MarqueeGroup>
+            {row1_m.map((el, index) => (
+              <ImageGroup key={index}>
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+          <MarqueeGroup>
+            {row1_m.map((el, index) => (
+              <ImageGroup key={index}>
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+        </Marquee>
+        <Marquee>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
+            {row2_m.map((el, index) => (
+              <ImageGroup key={index}>
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
+            {row2_m.map((el, index) => (
+              <ImageGroup key={index}>
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+        </Marquee>
+        <Marquee>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
+            {row3_m.map((el, index) => (
+              <ImageGroup key={index}>
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+              </ImageGroup>
+            ))}
+          </MarqueeGroup>
+          <MarqueeGroup
+            sx={{ animationDirection: "reverse", animationDelay: "-3s" }}
+          >
+            {row3_m.map((el, index) => (
+              <ImageGroup key={index}>
                 <Typography sx={{ color: 'black' }}>
                   {el}
                 </Typography>
@@ -218,15 +309,15 @@ const Marquee = styled(Box)({
   },
 });
 
-const MarqueeGroup = styled(Box)({
+const MarqueeGroup = styled(Box)(({ theme }) => ({
   flexShrink: 0,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-around",
   whiteSpace: "nowrap",
-  width: "120%",
+  width: theme.breakpoints.down('lg') ? '210%' : '150%',
   animation: `${scrollX} 30s linear infinite`,
-});
+}));
 
 const ImageGroup = styled(Box)(({ theme }) => ({
   display: "grid",
@@ -239,29 +330,29 @@ const ImageGroup = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
   [theme.breakpoints.down("lg")]: {
     padding: 0,
-    width: "32px",
-    height: "32px",
+    minWidth: "160px",
+    minHeight: "90px",
   },
   [theme.breakpoints.up("lg")]: {
     padding: "2px 5px",
-    width: "160px",
-    height: "90px",
+    minWidth: "160px",
+    minHeight: "90px",
   },
 }));
 
-const Image = styled("img")(({ theme }) => ({
-  objectFit: "contain",
-  aspectRatio: "16/9",
-  [theme.breakpoints.down("lg")]: {
-    padding: 0,
-    width: "32px",
-    height: "100%"
-  },
-  [theme.breakpoints.up("lg")]: {
-    padding: "2px 5px",
-    width: "100%",
-    height: "100%"
-  },
-}));
+// const Image = styled("img")(({ theme }) => ({
+//   objectFit: "contain",
+//   aspectRatio: "16/9",
+//   [theme.breakpoints.down("lg")]: {
+//     padding: 0,
+//     width: "32px",
+//     height: "100%"
+//   },
+//   [theme.breakpoints.up("lg")]: {
+//     padding: "2px 5px",
+//     width: "100%",
+//     height: "100%"
+//   },
+// }));
 
 export default UserCarousel;
