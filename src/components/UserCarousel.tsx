@@ -27,32 +27,32 @@ import WoojungTMS from "@/images/company/WoojungTMS.png"
 import YoungGwang from "@/images/company/YoungGwang.png"
 
 const row1 = [
-  AJTech.src.toString(),
-  Bion.src.toString(),
-  ConnectFactory.src.toString(),
-  Datagobongbab.src.toString(),
-  FactoryDoctor.src.toString(),
-  FindMachine.src.toString(),
-  Future.src.toString(),
+  '에이앤제이테크',
+  '(주)바이온',
+  '(주)커넥트팩토리',
+  '(주)데이터고봉밥',
+  '(주)팩토리닥터',
+  '(주)파인드머신',
+  '(주)퓨쳐테크',
 ];
 
 const row2 = [
-  Hinols.src.toString(),
-  IdeaPlus.src.toString(),
-  Juho.src.toString(),
-  KHKorea.src.toString(),
-  Maketen.src.toString(),
-  Mungil.src.toString(),
-  Royal.src.toString(),
+  '(주)하이놀시스템',
+  '아이디어플러스',
+  '(주)주호레포츠',
+  '케이에이치코리아',
+  '(주)메이크텐',
+  '(주)명일정밀',
+  '(조)로얄신소재',
 ];
 
 const row3 = [
-  SafePro.src.toString(),
-  Sbhe.src.toString(),
-  Sinsung.src.toString(),
-  TurningSolution.src.toString(),
-  WoojungTMS.src.toString(),
-  YoungGwang.src.toString(),
+  '(주)세이프프로',
+  '(주)에스비에이치비',
+  '신성나노텍',
+  '터닝솔루션',
+  '(주)우정티엠에스',
+  '영광테크',
 ];
 
 const scrollX = keyframes`
@@ -125,14 +125,22 @@ const UserCarousel = () => {
           <MarqueeGroup>
             {row1.map((el, index) => (
               <ImageGroup key={index}>
-                <Image src={el} />
+                {/* <Image src={el} > */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+                {/* </Image> */}
               </ImageGroup>
             ))}
           </MarqueeGroup>
           <MarqueeGroup>
             {row1.map((el, index) => (
               <ImageGroup key={index}>
-                <Image src={el} />
+                {/* <Image src={el} > */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
+                {/* </Image> */}
               </ImageGroup>
             ))}
           </MarqueeGroup>
@@ -143,7 +151,10 @@ const UserCarousel = () => {
           >
             {row2.map((el, index) => (
               <ImageGroup key={index}>
-                <Image src={el} />
+                {/* <Image src={el} /> */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
               </ImageGroup>
             ))}
           </MarqueeGroup>
@@ -152,7 +163,10 @@ const UserCarousel = () => {
           >
             {row2.map((el, index) => (
               <ImageGroup key={index}>
-                <Image src={el} />
+                {/* <Image src={el} /> */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
               </ImageGroup>
             ))}
           </MarqueeGroup>
@@ -163,7 +177,10 @@ const UserCarousel = () => {
           >
             {row3.map((el, index) => (
               <ImageGroup key={index}>
-                <Image src={el} />
+                {/* <Image src={el} /> */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
               </ImageGroup>
             ))}
           </MarqueeGroup>
@@ -172,7 +189,10 @@ const UserCarousel = () => {
           >
             {row3.map((el, index) => (
               <ImageGroup key={index}>
-                <Image src={el} />
+                {/* <Image src={el} /> */}
+                <Typography sx={{ color: 'black' }}>
+                  {el}
+                </Typography>
               </ImageGroup>
             ))}
           </MarqueeGroup>
@@ -187,6 +207,7 @@ const Marquee = styled(Box)({
   width: "90%",
   overflow: "hidden",
   userSelect: "none",
+  paddingTop: '20px',
   maskImage:
     "linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 5%, hsl(0 0% 0% / 1) 95%, hsl(0 0% 0% / 0))",
   "&:hover": {
@@ -207,12 +228,26 @@ const MarqueeGroup = styled(Box)({
   animation: `${scrollX} 30s linear infinite`,
 });
 
-const ImageGroup = styled(Box)({
+const ImageGroup = styled(Box)(({ theme }) => ({
   display: "grid",
   placeItems: "center",
   width: "clamp(10rem, 1rem + 40vmin, 30rem)",
   padding: "calc(clamp(10rem, 1rem + 30vmin, 30rem) / 10)",
-});
+  margin: '10px',
+  borderRadius: '10px',
+  boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
+  backgroundColor: 'white',
+  [theme.breakpoints.down("lg")]: {
+    padding: 0,
+    width: "32px",
+    height: "32px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    padding: "2px 5px",
+    width: "160px",
+    height: "90px",
+  },
+}));
 
 const Image = styled("img")(({ theme }) => ({
   objectFit: "contain",
