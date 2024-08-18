@@ -5,7 +5,6 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
-import theme from "@/theme/theme";
 
 interface ProductCardANDProps {
   title: string;

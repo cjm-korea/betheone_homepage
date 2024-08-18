@@ -6,10 +6,10 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import ProductCard from "./ProductCard";
-import AND from "@/images/AND.png";
-import IntelliCAD from "@/images/IntelliCAD.png";
-import Scam from "@/images/Scam.png";
-import Monitoring from "@/images/Monitoring.png";
+import AND from "@/images/AND.jpg";
+import IntelliCAD from "@/images/IntelliCAD.jpg";
+import Scam from "@/images/Scam.jpg";
+import Monitoring from "@/images/Monitoring.jpg";
 
 // StyledSlider를 styled로 스타일링
 const StyledSlider = styled(

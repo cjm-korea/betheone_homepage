@@ -6,10 +6,10 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import ProductCardAND from "./ProductCardAND";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-import LAN_use1 from "@/images/LAN_use1.png";
-import LAN_use2 from "@/images/LAN_use2.png";
-import RS232_use1 from "@/images/RS232_use1.png";
-import RS232_use2 from "@/images/RS232_use2.png";
+import LAN_use1 from "@/images/LAN_use1.jpg";
+import LAN_use2 from "@/images/LAN_use2.jpg";
+import RS232_use1 from "@/images/RS232_use1.jpg";
+import RS232_use2 from "@/images/RS232_use2.jpg";
 
 const StyledSlider = styled(
   forwardRef<Slider, any>((props, ref) => <Slider ref={ref} {...props} />)
