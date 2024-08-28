@@ -66,7 +66,7 @@ const ProductCardAND: React.FC<ProductCardANDProps> = ({
   href,
 }) => {
   return (
-    <Link href={'/'} style={{ textDecoration: "none" }}>
+    <Link href={href} style={{ textDecoration: "none" }}>
       <StyledBox colorconcept={colorconcept}>
         <StyledUpperBox>
           <Typography

@@ -56,7 +56,7 @@ export const Main_2 = () => {
               fontWeight: "bold",
             }}
           >
-            더 빠르고, 간편하고, 정확하게.
+            부착형 무선 데이터서버 AND
           </Typography>
           <Typography
             sx={{
@@ -72,7 +72,7 @@ export const Main_2 = () => {
               },
             }}
           >
-            USB, CF카드 없이 간단하게.
+            더 빠르고, 간편하고, 정확하게.
           </Typography>
         </Box>
         <ProductANDCarousel />

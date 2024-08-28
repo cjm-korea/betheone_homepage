@@ -322,21 +322,23 @@ const MarqueeGroup = styled(Box)(({ theme }) => ({
 const ImageGroup = styled(Box)(({ theme }) => ({
   display: "grid",
   placeItems: "center",
-  width: "clamp(10rem, 1rem + 40vmin, 30rem)",
-  padding: "calc(clamp(10rem, 1rem + 30vmin, 30rem) / 10)",
-  margin: '10px',
-  borderRadius: '10px',
-  boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
-  backgroundColor: 'white',
+  width: "400px",
+  height: "200px",
+  margin: "10px",
+  borderRadius: "10px",
+  boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.1)",
+  backgroundColor: "white",
   [theme.breakpoints.down("lg")]: {
-    padding: 0,
-    minWidth: "160px",
-    minHeight: "90px",
+    width: "300px",  // 작은 화면에서는 약간 축소
+    height: "150px",
+  },
+  [theme.breakpoints.down("md")]: {
+    width: "200px",  // 더 작은 화면에서는 더 축소
+    height: "100px",
   },
   [theme.breakpoints.up("lg")]: {
-    padding: "2px 5px",
-    minWidth: "160px",
-    minHeight: "90px",
+    width: "300px",
+    height: "150px",
   },
 }));
 
