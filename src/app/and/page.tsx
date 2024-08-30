@@ -1,61 +1,129 @@
 "use client";
 
-import { Box, Card, CardActionArea, CardContent, Container, Grid, Typography } from "@mui/material";
+import ContactModal from "@/components/ContactModal";
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function AND() {
   const [isSticky, setIsSticky] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const stickyRef = useRef<HTMLDivElement | null>(null);
-  const [selectedModel, setSelectedModel] = useState<'LAN' | 'RS232' | null>(null);
-  const [selectedOption, setSelectedOption] = useState<'Option1' | 'Option2' | null>(null);
-  const [selectedNetwork, setSelectedNetwork] = useState<'O' | 'X' | null>(null);
-  const [price, setPrice] = useState<number>(0);
+
+  const [selectedModel, setSelectedModel] = useState<"LAN" | "RS232">("LAN");
+  const [selectedOption, setSelectedOption] = useState<"Option1" | "Option2">(
+    "Option1"
+  );
+  const [selectedNetwork, setSelectedNetwork] = useState<"O" | "X">("O");
+  const [finalPrice, setFinalPrice] = useState<number>(0);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
 
   const component2Ref = useRef<HTMLDivElement>(null);
   const component3Ref = useRef<HTMLDivElement>(null);
   const component4Ref = useRef<HTMLDivElement>(null);
 
-  // 1 컴포넌트의 박스를 클릭했을 때의 처리
-  const handleSelectModel = (model: 'LAN' | 'RS232') => {
+  const calculatePrice = () => {
+    let optionPrice: number = 0;
+
+    if (selectedModel === "LAN") {
+      optionPrice = selectedOption === "Option1" ? 400000 : 800000;
+    } else if (selectedModel === "RS232") {
+      optionPrice = selectedOption === "Option1" ? 500000 : 700000;
+    }
+
+    let networkPrice: number = selectedNetwork === "O" ? 0 : 100000;
+
+    setFinalPrice(optionPrice + networkPrice);
+  };
+
+  const handleSelectModel = (model: "LAN" | "RS232") => {
     setSelectedModel(model);
-    setPrice(model === 'LAN' ? 400000 : 800000);
+
     if (component2Ref.current) {
-      component2Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      component2Ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   };
 
-  // 2 컴포넌트의 박스를 클릭했을 때의 처리
-  const handleSelectOption = (option: 'Option1' | 'Option2') => {
+  const handleSelectOption = (option: "Option1" | "Option2") => {
     setSelectedOption(option);
-    setPrice(prevPrice => option === 'Option1' ? prevPrice + 0 : prevPrice + 200000);
+
     if (component3Ref.current) {
-      component3Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      component3Ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   };
 
-  // 3 컴포넌트의 박스를 클릭했을 때의 처리
-  const handleSelectNetwork = (option: 'O' | 'X') => {
+  const handleSelectNetwork = (option: "O" | "X") => {
     setSelectedNetwork(option);
-    setPrice(prevPrice => option === 'O' ? prevPrice : prevPrice + 100000);
+
     if (component4Ref.current) {
-      component4Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      component4Ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   };
 
-  // 2 컴포넌트의 박스 텍스트 설정
+  useEffect(() => {
+    calculatePrice();
+  }, [selectedModel, selectedNetwork, selectedNetwork]);
+
   const getBoxText2 = () => {
     switch (selectedModel) {
-      case 'LAN':
-        return ['원격가공', '데이터 전송', 'M198, DNC(REMOTE)가공 사용 가능', '데이터 입력, 출력', '800,000원', '400,000원'];
-      case 'RS232':
-        return ['3인치', '10인치', '작고 빠르게', '크고 편하게', '600,000원', '800,000원'];
+      case "LAN":
+        return [
+          "데이터 전송",
+          "원격가공",
+          "데이터 입력, 출력",
+          "M198, DNC(REMOTE)가공 사용 가능",
+          "+0원",
+          "+400,000원",
+        ];
+      case "RS232":
+        return [
+          "3인치",
+          "10인치",
+          "작고 빠르게",
+          "크고 편하게",
+          "+0원",
+          "+200,000원",
+        ];
       default:
-        return ['원격가공', '데이터 전송', 'M198, DNC(REMOTE)가공 사용 가능', '데이터 입력, 출력', '800,000원', '400,000원'];
+        return [
+          "데이터 전송",
+          "원격가공",
+          "데이터 입력, 출력",
+          "M198, DNC(REMOTE)가공 사용 가능",
+          "+0원",
+          "+400,000원",
+        ];
     }
   };
 
-  const [boxText2_1, boxText2_2, boxText2_3, boxText2_4, boxText2_5, boxText2_6] = getBoxText2();
+  const [
+    boxText2_1,
+    boxText2_2,
+    boxText2_3,
+    boxText2_4,
+    boxText2_5,
+    boxText2_6,
+  ] = getBoxText2();
 
   useEffect(() => {
     if (!containerRef.current || !stickyRef.current) return;
@@ -93,7 +161,7 @@ export default function AND() {
             width: "100vw",
             height: "auto",
             mb: 6,
-            pt: 6
+            pt: 6,
           }}
         >
           <Box
@@ -118,13 +186,15 @@ export default function AND() {
             >
               All New DNC
             </Typography>
-            <Box sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: 'space-between',
-              pt: "60px",
-              width: "100%"
-            }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                pt: "60px",
+                width: "100%",
+              }}
+            >
               {/* 좌측 이미지 */}
               <Box
                 ref={stickyRef}
@@ -139,7 +209,7 @@ export default function AND() {
                   maxWidth: "592px",
                 }}
               >
-                <Box sx={{ minWidth: '400px', minHeight: 'fit-content' }}>
+                <Box sx={{ minWidth: "400px", minHeight: "fit-content" }}>
                   <Box
                     component="img"
                     src={"https://via.placeholder.com/500x500"}
@@ -163,14 +233,21 @@ export default function AND() {
                 }}
               >
                 {/* 1 컴포넌트 */}
-                <Box sx={{ width: '100%', padding: 2, mt: '10vh', mb: '50vh' }}>
-                  <Box sx={{ marginBottom: 3, display: 'flex', flexDirection: 'row', alignItems: 'baseline' }}>
+                <Box sx={{ width: "100%", padding: 2, mt: "10vh", mb: "50vh" }}>
+                  <Box
+                    sx={{
+                      marginBottom: 3,
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "baseline",
+                    }}
+                  >
                     <Typography
                       variant="h5"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        fontWeight: 'bold',
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        fontWeight: "bold",
                       }}
                     >
                       모델.
@@ -178,10 +255,10 @@ export default function AND() {
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        opacity: '50%',
-                        paddingLeft: { xs: 0, md: '8px' },
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        opacity: "50%",
+                        paddingLeft: { xs: 0, md: "8px" },
                       }}
                     >
                       원하는 제품군을 선택하세요.
@@ -192,24 +269,42 @@ export default function AND() {
                     <Grid item xs={12} md={6}>
                       <Card
                         variant="outlined"
-                        onClick={() => handleSelectModel('LAN')}
+                        onClick={() => handleSelectModel("LAN")}
                         sx={{
-                          borderRadius: '12px',
-                          borderColor: selectedModel === 'LAN' ? '#006bff' : 'gray',
-                          transition: 'border-color 0.3s ease',
+                          borderRadius: "12px",
+                          borderColor:
+                            selectedModel === "LAN" ? "#006bff" : "gray",
+                          transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: '14px', md: '18px' } }}>
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
                                 LAN 모델
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
                                 단독 모델
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
                               400,000원부터
                             </Typography>
                           </CardContent>
@@ -220,25 +315,43 @@ export default function AND() {
                     <Grid item xs={12} md={6}>
                       <Card
                         variant="outlined"
-                        onClick={() => handleSelectModel('RS232')}
+                        onClick={() => handleSelectModel("RS232")}
                         sx={{
-                          borderRadius: '12px',
-                          borderColor: selectedModel === 'RS232' ? '#006bff' : 'gray',
-                          transition: 'border-color 0.3s ease',
+                          borderRadius: "12px",
+                          borderColor:
+                            selectedModel === "RS232" ? "#006bff" : "gray",
+                          transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: '14px', md: '18px' } }}>
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
                                 RS232 모델
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
                                 디스플레이 포함
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
-                              800,000원부터
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
+                              500,000원부터
                             </Typography>
                           </CardContent>
                         </CardActionArea>
@@ -248,25 +361,35 @@ export default function AND() {
                 </Box>
 
                 {/* 2 컴포넌트 */}
-                <Box ref={component2Ref} sx={{ width: '100%', padding: 2, mb: '50vh' }}>
-                  <Box sx={{ marginBottom: 3, display: 'flex', flexDirection: 'row', alignItems: 'baseline' }}>
+                <Box
+                  ref={component2Ref}
+                  sx={{ width: "100%", padding: 2, mb: "50vh" }}
+                >
+                  <Box
+                    sx={{
+                      marginBottom: 3,
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "baseline",
+                    }}
+                  >
                     <Typography
                       variant="h5"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        fontWeight: 'bold',
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        fontWeight: "bold",
                       }}
                     >
-                      옵션1
+                      옵션1.
                     </Typography>
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        opacity: '50%',
-                        paddingLeft: { xs: 0, md: '8px' },
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        opacity: "50%",
+                        paddingLeft: { xs: 0, md: "8px" },
                       }}
                     >
                       제품 사용 옵션
@@ -277,24 +400,42 @@ export default function AND() {
                     <Grid item xs={12} md={6}>
                       <Card
                         variant="outlined"
-                        onClick={() => handleSelectOption('Option1')}
+                        onClick={() => handleSelectOption("Option1")}
                         sx={{
-                          borderRadius: '12px',
-                          borderColor: selectedOption === 'Option1' ? '#006bff' : 'gray',
-                          transition: 'border-color 0.3s ease',
+                          borderRadius: "12px",
+                          borderColor:
+                            selectedOption === "Option1" ? "#006bff" : "gray",
+                          transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: '14px', md: '18px' } }}>
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
                                 {boxText2_1}
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
                                 {boxText2_3}
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
                               {boxText2_5}
                             </Typography>
                           </CardContent>
@@ -305,24 +446,42 @@ export default function AND() {
                     <Grid item xs={12} md={6}>
                       <Card
                         variant="outlined"
-                        onClick={() => handleSelectOption('Option1')}
+                        onClick={() => handleSelectOption("Option2")}
                         sx={{
-                          borderRadius: '12px',
-                          borderColor: selectedOption === 'Option1' ? '#006bff' : 'gray',
-                          transition: 'border-color 0.3s ease',
+                          borderRadius: "12px",
+                          borderColor:
+                            selectedOption === "Option1" ? "#006bff" : "gray",
+                          transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: '14px', md: '18px' } }}>
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
                                 {boxText2_2}
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
                                 {boxText2_4}
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
                               {boxText2_6}
                             </Typography>
                           </CardContent>
@@ -333,14 +492,24 @@ export default function AND() {
                 </Box>
 
                 {/* 3 컴포넌트 */}
-                <Box ref={component3Ref} sx={{ width: '100%', padding: 2, mb: '50vh' }}>
-                  <Box sx={{ marginBottom: 3, display: 'flex', flexDirection: 'row', alignItems: 'baseline' }}>
+                <Box
+                  ref={component3Ref}
+                  sx={{ width: "100%", padding: 2, mb: "50vh" }}
+                >
+                  <Box
+                    sx={{
+                      marginBottom: 3,
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "baseline",
+                    }}
+                  >
                     <Typography
                       variant="h5"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        fontWeight: 'bold',
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        fontWeight: "bold",
                       }}
                     >
                       네트워크.
@@ -348,10 +517,10 @@ export default function AND() {
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        opacity: '50%',
-                        paddingLeft: { xs: 0, md: '8px' },
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        opacity: "50%",
+                        paddingLeft: { xs: 0, md: "8px" },
                       }}
                     >
                       간단하고 빠른 구성
@@ -362,24 +531,42 @@ export default function AND() {
                     <Grid item xs={12} md={6}>
                       <Card
                         variant="outlined"
-                        onClick={() => handleSelectNetwork('O')}
+                        onClick={() => handleSelectNetwork("O")}
                         sx={{
-                          borderRadius: '12px',
-                          borderColor: selectedNetwork === 'O' ? '#006bff' : 'gray',
-                          transition: 'border-color 0.3s ease',
+                          borderRadius: "12px",
+                          borderColor:
+                            selectedNetwork === "O" ? "#006bff" : "gray",
+                          transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: '14px', md: '18px' } }}>
-                                네트워크 O
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
+                                네트워크 있음
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
                                 기존 네트워크에 추가
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
                               + 0원
                             </Typography>
                           </CardContent>
@@ -390,24 +577,42 @@ export default function AND() {
                     <Grid item xs={12} md={6}>
                       <Card
                         variant="outlined"
-                        onClick={() => handleSelectNetwork('X')}
+                        onClick={() => handleSelectNetwork("X")}
                         sx={{
-                          borderRadius: '12px',
-                          borderColor: selectedNetwork === 'X' ? '#006bff' : 'gray',
-                          transition: 'border-color 0.3s ease',
+                          borderRadius: "12px",
+                          borderColor:
+                            selectedNetwork === "X" ? "#006bff" : "gray",
+                          transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: '14px', md: '18px' } }}>
-                                네트워크 X
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
+                                네트워크 없음
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
                                 새로운 네트워크 구성
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: '10px', md: '14px' } }}>
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
                               + 100,000원
                             </Typography>
                           </CardContent>
@@ -417,26 +622,36 @@ export default function AND() {
                   </Grid>
                 </Box>
                 {/* 4 컴포넌트 */}
-                <Box ref={component4Ref} sx={{ width: "100%", padding: 2, mb: '15vh' }}>
+                <Box
+                  ref={component4Ref}
+                  sx={{ width: "100%", padding: 2, mb: "15vh" }}
+                >
                   {/* 1. 상단 타이포그래피 */}
-                  <Box sx={{ marginBottom: 3, display: 'flex', flexDirection: 'row', alignItems: 'baseline' }}>
+                  <Box
+                    sx={{
+                      marginBottom: 3,
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "baseline",
+                    }}
+                  >
                     <Typography
                       variant="h5"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        fontWeight: 'bold',
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        fontWeight: "bold",
                       }}
                     >
-                      가장 빠른 설치.
+                      최종 제품 확인.
                     </Typography>
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        color: 'black',
-                        fontSize: { xs: '16px', md: '24px' },
-                        opacity: '50%',
-                        paddingLeft: { xs: 0, md: '8px' },
+                        color: "black",
+                        fontSize: { xs: "16px", md: "24px" },
+                        opacity: "50%",
+                        paddingLeft: { xs: 0, md: "8px" },
                       }}
                     >
                       즉시 연락
@@ -444,59 +659,60 @@ export default function AND() {
                   </Box>
 
                   {/* 2. 선택 가능한 네모 박스 */}
-                  <Grid container sx={{ marginBottom: 3, width: '100%' }}>
-                    {/* LAN 모델 */}
-                    {/* <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        sx={{
-                          borderRadius: "12px",
-                          borderColor: selectedModel === "LAN" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
-                        }}
-                      >
-                        <CardActionArea>
-                          <CardContent sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                            <Box sx={{ display: "flex", flexDirection: "column" }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: "14px", md: "18px" } }} >
-                                LAN 모델
-                              </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: "10px", md: "14px" } }}>
-                                단독 모델
-                              </Typography>
-                            </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: "10px", md: "14px" } }}>
-                              400,000원부터
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid> */}
-
+                  <Grid container sx={{ marginBottom: 3, width: "100%" }}>
                     <Grid item xs={12} md={12}>
                       <Card
                         variant="outlined"
                         sx={{
                           borderRadius: "12px",
-                          borderColor: selectedModel === "RS232" ? "#006bff" : "gray",
+                          borderColor:
+                            selectedModel === "RS232" ? "#006bff" : "gray",
                           transition: "border-color 0.3s ease",
                         }}
                       >
                         <CardActionArea>
-                          <CardContent sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                            <Box sx={{ display: "flex", flexDirection: "column" }}>
-                              <Typography variant="h6" sx={{ fontSize: { xs: "14px", md: "18px" } }} >
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{ display: "flex", flexDirection: "column" }}
+                            >
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                              >
                                 {selectedModel}
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: "10px", md: "14px" } }}>
-                                {selectedOption}
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                {selectedModel === "LAN"
+                                  ? selectedOption === "Option1"
+                                    ? "M198, DNC(REMOTE)가공 사용 가능"
+                                    : "데이터 전송"
+                                  : selectedOption === "Option1"
+                                  ? "3인치 디스플레이"
+                                  : "10인치 디스플레이"}
                               </Typography>
-                              <Typography variant="body2" sx={{ fontSize: { xs: "10px", md: "14px" } }}>
-                                {selectedNetwork}
+                              <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                {selectedNetwork === "O"
+                                  ? "기존 네트워크에 추가"
+                                  : "새로운 네트워크 구성"}
                               </Typography>
                             </Box>
-                            <Typography variant="h6" sx={{ fontSize: { xs: "10px", md: "14px" } }}>
-                              {price.toString()}원부터
+                            <Typography
+                              variant="h6"
+                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            >
+                              {finalPrice.toLocaleString()}원
                             </Typography>
                           </CardContent>
                         </CardActionArea>
@@ -505,49 +721,36 @@ export default function AND() {
                   </Grid>
 
                   {/* 3. 제품의 간략한 설명 */}
-                  <Box sx={{ backgroundColor: "#F5F5F7", padding: 3, borderRadius: "12px", position: "relative" }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <Box>
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            color: "black",
-                            fontSize: { xs: "14px", md: "18px" },
-                            fontWeight: "bold",
-                            marginBottom: 1,
-                          }}
-                        >
-                          부착형 무선 데이터서버 AND가 궁금하다면?
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            color: "black",
-                            fontSize: { xs: "10px", md: "14px" },
-                          }}
-                        >
-                          제조 인프라의 가장 앞선 무선 데이터 서버를 소개합니다.
-                        </Typography>
-                      </Box>
-                      {/* 우측 상단의 +표시 */}
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          top: "16px",
-                          right: "16px",
-                          fontSize: "24px",
-                          color: "black",
-                          cursor: "pointer",
-                        }}
-                      >
-                        +
-                      </Box>
-                    </Box>
+                  <Box
+                    sx={{
+                      border: "1px solid gray",
+                      padding: 3,
+                      borderRadius: "12px",
+                      textAlign: "center",
+                      position: "relative",
+                      cursor: "pointer",
+                      background:
+                        "linear-gradient(135deg, #006bff 0%, #00ccff 100%)",
+                      color: "white",
+                    }}
+                    onClick={handleOpen}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "black",
+                        fontSize: { xs: "14px", md: "18px" },
+                        fontWeight: "bold",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      빠른 상담받기 🚀
+                    </Typography>
                   </Box>
+                  <ContactModal open={modalOpen} onClose={handleClose} />
                 </Box>
               </Box>
-
-
             </Box>
           </Box>
         </Box>
@@ -568,8 +771,8 @@ export default function AND() {
               <Typography variant="body1">
                 내용 {index + 1} Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit. Phasellus imperdiet, nulla at auctor
-                scelerisque, turpis purus fringilla libero, eget ultrices
-                est dui vel felis. Suspendisse potenti.
+                scelerisque, turpis purus fringilla libero, eget ultrices est
+                dui vel felis. Suspendisse potenti.
               </Typography>
             </Box>
             <Box sx={{ padding: 2, border: "1px solid #ccc" }}>
