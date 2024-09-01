@@ -11,6 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
+import ANDImage from "@/images/LAN_use1.jpg";
+import ANDComposeCard from "@/components/ANDComposeCard";
+import FAQSection from "@/components/FAQCard";
 
 export default function AND() {
   const [isSticky, setIsSticky] = useState(false);
@@ -147,642 +150,801 @@ export default function AND() {
   }, []);
 
   return (
-    <Container maxWidth="xl">
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <>
+      <Container sx={{ width: "100vw" }}>
         <Box
           sx={{
-            width: "100vw",
-            height: "auto",
-            mb: 6,
-            pt: 6,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <Box
             sx={{
-              px: "170px",
-              py: "60px",
+              width: "100vw",
               height: "auto",
-              color: "white",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "start",
+              mb: 6,
+              pt: 6,
             }}
           >
-            <Typography
-              sx={{ color: "#b64400", fontSize: "17px", fontWeight: "medium" }}
-            >
-              더 빠르고, 간편하고, 정확하게.
-            </Typography>
-            <Typography
-              sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
-            >
-              All New DNC
-            </Typography>
             <Box
               sx={{
+                px: "170px",
+                py: "60px",
+                height: "auto",
+                color: "white",
                 display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                pt: "60px",
-                width: "100%",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "start",
               }}
             >
-              {/* 좌측 이미지 */}
-              <Box
-                ref={stickyRef}
+              <Typography
                 sx={{
-                  flex: 1,
-                  minWidth: "400px",
-                  position: !isSticky ? "sticky" : "static",
-                  top: !isSticky ? "25%" : "auto",
-                  height: "fit-content",
-                  overflow: "hidden",
-                  transition: "position 0.3s ease",
-                  maxWidth: "592px",
+                  color: "#b64400",
+                  fontSize: "17px",
+                  fontWeight: "medium",
                 }}
               >
-                <Box sx={{ minWidth: "400px", minHeight: "fit-content" }}>
-                  <Box
-                    component="img"
-                    src={"https://via.placeholder.com/500x500"}
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "18px",
-                    }}
-                  />
-                </Box>
-              </Box>
-              {/* 우측 내용 우선 */}
+                더 빠르고, 간편하고, 정확하게.
+              </Typography>
+              <Typography
+                sx={{ color: "black", fontSize: "40px", fontWeight: "bold" }}
+              >
+                All New DNC
+              </Typography>
               <Box
-                ref={containerRef}
                 sx={{
-                  flex: 1.2,
-                  paddingX: 2,
-                  minWidth: 0,
-                  height: "100%",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  pt: "60px",
+                  width: "100%",
                 }}
               >
-                {/* 1 컴포넌트 */}
-                <Box sx={{ width: "100%", padding: 2, mt: "10vh", mb: "50vh" }}>
-                  <Box
-                    sx={{
-                      marginBottom: 3,
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "baseline",
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        fontWeight: "bold",
-                      }}
-                    >
-                      모델.
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        opacity: "50%",
-                        paddingLeft: { xs: 0, md: "8px" },
-                      }}
-                    >
-                      원하는 제품군을 선택하세요.
-                    </Typography>
-                  </Box>
-
-                  <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        onClick={() => handleSelectModel("LAN")}
-                        sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedModel === "LAN" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
-                        }}
-                      >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
-                            >
-                              <Typography
-                                variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                LAN 모델
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                              >
-                                단독 모델
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                            >
-                              400,000원부터
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        onClick={() => handleSelectModel("RS232")}
-                        sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedModel === "RS232" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
-                        }}
-                      >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
-                            >
-                              <Typography
-                                variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                RS232 모델
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                              >
-                                디스플레이 포함
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                            >
-                              500,000원부터
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-                  </Grid>
-                </Box>
-
-                {/* 2 컴포넌트 */}
+                {/* 좌측 이미지 */}
                 <Box
-                  ref={component2Ref}
-                  sx={{ width: "100%", padding: 2, mb: "50vh" }}
+                  ref={stickyRef}
+                  sx={{
+                    flex: 1,
+                    minWidth: "400px",
+                    position: !isSticky ? "sticky" : "static",
+                    top: !isSticky ? "25%" : "auto",
+                    height: "fit-content",
+                    overflow: "hidden",
+                    transition: "position 0.3s ease",
+                    maxWidth: "592px",
+                  }}
                 >
-                  <Box
-                    sx={{
-                      marginBottom: 3,
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "baseline",
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
+                  <Box sx={{ minWidth: "400px", minHeight: "fit-content" }}>
+                    <Box
+                      component="img"
+                      src={ANDImage.src}
                       sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        fontWeight: "bold",
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "18px",
                       }}
-                    >
-                      옵션1.
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        opacity: "50%",
-                        paddingLeft: { xs: 0, md: "8px" },
-                      }}
-                    >
-                      제품 사용 옵션
-                    </Typography>
+                    />
                   </Box>
-
-                  <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        onClick={() => handleSelectOption("Option1")}
-                        sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedOption === "Option1" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
-                        }}
-                      >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
-                            >
-                              <Typography
-                                variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                {boxText2_1}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                              >
-                                {boxText2_3}
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                            >
-                              {boxText2_5}
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        onClick={() => handleSelectOption("Option2")}
-                        sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedOption === "Option1" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
-                        }}
-                      >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
-                            >
-                              <Typography
-                                variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                {boxText2_2}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                              >
-                                {boxText2_4}
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                            >
-                              {boxText2_6}
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-                  </Grid>
                 </Box>
-
-                {/* 3 컴포넌트 */}
+                {/* 우측 내용 우선 */}
                 <Box
-                  ref={component3Ref}
-                  sx={{ width: "100%", padding: 2, mb: "50vh" }}
+                  ref={containerRef}
+                  sx={{
+                    flex: 1.2,
+                    paddingX: 2,
+                    minWidth: 0,
+                    height: "100%",
+                  }}
                 >
+                  {/* 1 컴포넌트 */}
                   <Box
-                    sx={{
-                      marginBottom: 3,
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "baseline",
-                    }}
+                    sx={{ width: "100%", padding: 2, mt: "10vh", mb: "50vh" }}
                   >
-                    <Typography
-                      variant="h5"
+                    <Box
                       sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        fontWeight: "bold",
+                        marginBottom: 3,
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "baseline",
                       }}
                     >
-                      네트워크.
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        opacity: "50%",
-                        paddingLeft: { xs: 0, md: "8px" },
-                      }}
-                    >
-                      간단하고 빠른 구성
-                    </Typography>
-                  </Box>
-
-                  <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        onClick={() => handleSelectNetwork("O")}
+                      <Typography
+                        variant="h5"
                         sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedNetwork === "O" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          fontWeight: "bold",
                         }}
                       >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
-                            >
-                              <Typography
-                                variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                네트워크 있음
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                              >
-                                기존 네트워크에 추가
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                            >
-                              + 0원
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        variant="outlined"
-                        onClick={() => handleSelectNetwork("X")}
+                        모델.
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
                         sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedNetwork === "X" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          opacity: "50%",
+                          paddingLeft: { xs: 0, md: "8px" },
                         }}
                       >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
+                        원하는 제품군을 선택하세요.
+                      </Typography>
+                    </Box>
+
+                    <Grid container spacing={2} sx={{ marginBottom: 3 }}>
+                      <Grid item xs={12} md={6}>
+                        <Card
+                          variant="outlined"
+                          onClick={() => handleSelectModel("LAN")}
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedModel === "LAN" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
                             >
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  LAN 모델
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  단독 모델
+                                </Typography>
+                              </Box>
                               <Typography
                                 variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                네트워크 없음
-                              </Typography>
-                              <Typography
-                                variant="body2"
                                 sx={{ fontSize: { xs: "10px", md: "14px" } }}
                               >
-                                새로운 네트워크 구성
+                                400,000원부터
                               </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
+                        <Card
+                          variant="outlined"
+                          onClick={() => handleSelectModel("RS232")}
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedModel === "RS232" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
                             >
-                              + 100,000원
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  RS232 모델
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  디스플레이 포함
+                                </Typography>
+                              </Box>
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                500,000원부터
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </Box>
-                {/* 4 컴포넌트 */}
-                <Box
-                  ref={component4Ref}
-                  sx={{ width: "100%", padding: 2, mb: "15vh" }}
-                >
-                  {/* 1. 상단 타이포그래피 */}
-                  <Box
-                    sx={{
-                      marginBottom: 3,
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "baseline",
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        fontWeight: "bold",
-                      }}
-                    >
-                      최종 제품 확인.
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        color: "black",
-                        fontSize: { xs: "16px", md: "24px" },
-                        opacity: "50%",
-                        paddingLeft: { xs: 0, md: "8px" },
-                      }}
-                    >
-                      즉시 연락
-                    </Typography>
                   </Box>
 
-                  {/* 2. 선택 가능한 네모 박스 */}
-                  <Grid container sx={{ marginBottom: 3, width: "100%" }}>
-                    <Grid item xs={12} md={12}>
-                      <Card
-                        variant="outlined"
+                  {/* 2 컴포넌트 */}
+                  <Box
+                    ref={component2Ref}
+                    sx={{ width: "100%", padding: 2, mb: "50vh" }}
+                  >
+                    <Box
+                      sx={{
+                        marginBottom: 3,
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "baseline",
+                      }}
+                    >
+                      <Typography
+                        variant="h5"
                         sx={{
-                          borderRadius: "12px",
-                          borderColor:
-                            selectedModel === "RS232" ? "#006bff" : "gray",
-                          transition: "border-color 0.3s ease",
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          fontWeight: "bold",
                         }}
                       >
-                        <CardActionArea>
-                          <CardContent
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{ display: "flex", flexDirection: "column" }}
+                        옵션1.
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          opacity: "50%",
+                          paddingLeft: { xs: 0, md: "8px" },
+                        }}
+                      >
+                        제품 사용 옵션
+                      </Typography>
+                    </Box>
+
+                    <Grid container spacing={2} sx={{ marginBottom: 3 }}>
+                      <Grid item xs={12} md={6}>
+                        <Card
+                          variant="outlined"
+                          onClick={() => handleSelectOption("Option1")}
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedOption === "Option1" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
                             >
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  {boxText2_1}
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  {boxText2_3}
+                                </Typography>
+                              </Box>
                               <Typography
                                 variant="h6"
-                                sx={{ fontSize: { xs: "14px", md: "18px" } }}
-                              >
-                                {selectedModel}
-                              </Typography>
-                              <Typography
-                                variant="body2"
                                 sx={{ fontSize: { xs: "10px", md: "14px" } }}
                               >
-                                {selectedModel === "LAN"
-                                  ? selectedOption === "Option1"
-                                    ? "M198, DNC(REMOTE)가공 사용 가능"
-                                    : "데이터 전송"
-                                  : selectedOption === "Option1"
-                                  ? "3인치 디스플레이"
-                                  : "10인치 디스플레이"}
+                                {boxText2_5}
                               </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                              >
-                                {selectedNetwork === "O"
-                                  ? "기존 네트워크에 추가"
-                                  : "새로운 네트워크 구성"}
-                              </Typography>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              sx={{ fontSize: { xs: "10px", md: "14px" } }}
-                            >
-                              {finalPrice.toLocaleString()}원
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-                  </Grid>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
 
-                  {/* 3. 제품의 간략한 설명 */}
+                      <Grid item xs={12} md={6}>
+                        <Card
+                          variant="outlined"
+                          onClick={() => handleSelectOption("Option2")}
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedOption === "Option1" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  {boxText2_2}
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  {boxText2_4}
+                                </Typography>
+                              </Box>
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                {boxText2_6}
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
+                    </Grid>
+                  </Box>
+
+                  {/* 3 컴포넌트 */}
                   <Box
-                    sx={{
-                      border: "1px solid gray",
-                      padding: 3,
-                      borderRadius: "12px",
-                      textAlign: "center",
-                      position: "relative",
-                      cursor: "pointer",
-                      background:
-                        "linear-gradient(135deg, #006bff 0%, #00ccff 100%)",
-                      color: "white",
-                    }}
-                    onClick={handleOpen}
+                    ref={component3Ref}
+                    sx={{ width: "100%", padding: 2, mb: "50vh" }}
                   >
-                    <Typography
-                      variant="h6"
+                    <Box
                       sx={{
-                        color: "black",
-                        fontSize: { xs: "14px", md: "18px" },
-                        fontWeight: "bold",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        marginBottom: 3,
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "baseline",
                       }}
                     >
-                      빠른 상담받기 🚀
-                    </Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          fontWeight: "bold",
+                        }}
+                      >
+                        네트워크.
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          opacity: "50%",
+                          paddingLeft: { xs: 0, md: "8px" },
+                        }}
+                      >
+                        간단하고 빠른 구성
+                      </Typography>
+                    </Box>
+
+                    <Grid container spacing={2} sx={{ marginBottom: 3 }}>
+                      <Grid item xs={12} md={6}>
+                        <Card
+                          variant="outlined"
+                          onClick={() => handleSelectNetwork("O")}
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedNetwork === "O" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  네트워크 있음
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  기존 네트워크에 추가
+                                </Typography>
+                              </Box>
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                + 0원
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
+                        <Card
+                          variant="outlined"
+                          onClick={() => handleSelectNetwork("X")}
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedNetwork === "X" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  네트워크 없음
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  새로운 네트워크 구성
+                                </Typography>
+                              </Box>
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                + 100,000원
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
+                    </Grid>
                   </Box>
-                  <ContactModal open={modalOpen} onClose={handleClose} />
+                  {/* 4 컴포넌트 */}
+                  <Box
+                    ref={component4Ref}
+                    sx={{ width: "100%", padding: 2, mb: "15vh" }}
+                  >
+                    {/* 1. 상단 타이포그래피 */}
+                    <Box
+                      sx={{
+                        marginBottom: 3,
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "baseline",
+                      }}
+                    >
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          fontWeight: "bold",
+                        }}
+                      >
+                        최종 제품 확인.
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          color: "black",
+                          fontSize: { xs: "16px", md: "24px" },
+                          opacity: "50%",
+                          paddingLeft: { xs: 0, md: "8px" },
+                        }}
+                      >
+                        즉시 연락
+                      </Typography>
+                    </Box>
+
+                    {/* 2. 선택 가능한 네모 박스 */}
+                    <Grid container sx={{ marginBottom: 3, width: "100%" }}>
+                      <Grid item xs={12} md={12}>
+                        <Card
+                          variant="outlined"
+                          sx={{
+                            borderRadius: "12px",
+                            borderColor:
+                              selectedModel === "RS232" ? "#006bff" : "gray",
+                            transition: "border-color 0.3s ease",
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardContent
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontSize: { xs: "14px", md: "18px" } }}
+                                >
+                                  {selectedModel}
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  {selectedModel === "LAN"
+                                    ? selectedOption === "Option1"
+                                      ? "M198, DNC(REMOTE)가공 사용 가능"
+                                      : "데이터 전송"
+                                    : selectedOption === "Option1"
+                                    ? "3인치 디스플레이"
+                                    : "10인치 디스플레이"}
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                                >
+                                  {selectedNetwork === "O"
+                                    ? "기존 네트워크에 추가"
+                                    : "새로운 네트워크 구성"}
+                                </Typography>
+                              </Box>
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                              >
+                                {finalPrice.toLocaleString()}원
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </Grid>
+                    </Grid>
+
+                    {/* 3. 제품의 간략한 설명 */}
+                    <Box
+                      sx={{
+                        border: "1px solid gray",
+                        padding: 3,
+                        borderRadius: "12px",
+                        textAlign: "center",
+                        position: "relative",
+                        cursor: "pointer",
+                        background:
+                          "linear-gradient(135deg, #006bff 0%, #00ccff 100%)",
+                        color: "white",
+                      }}
+                      onClick={handleOpen}
+                    >
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: "black",
+                          fontSize: { xs: "14px", md: "18px" },
+                          fontWeight: "bold",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        빠른 상담받기 🚀
+                      </Typography>
+                    </Box>
+                    <ContactModal open={modalOpen} onClose={handleClose} />
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
         </Box>
-
-        {[...Array(7)].map((_, index) => (
-          <Box
-            key={index}
+      </Container>
+      <Box
+        sx={{
+          width: "100%",
+          marginBottom: 4,
+          padding: 2,
+          backgroundColor: "#F5F5F7",
+        }}
+      >
+        {/* 상단: 타이포그래피 */}
+        <Box
+          sx={{
+            marginBottom: 3,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "baseline",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            variant="h5"
             sx={{
-              marginBottom: 4,
-              padding: 2,
-              border: "1px solid #ddd",
+              color: "black",
+              fontSize: { xs: "16px", md: "24px" },
+              fontWeight: "bold",
             }}
           >
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              제목 {index + 1}
-            </Typography>
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="body1">
-                내용 {index + 1} Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Phasellus imperdiet, nulla at auctor
-                scelerisque, turpis purus fringilla libero, eget ultrices est
-                dui vel felis. Suspendisse potenti.
-              </Typography>
-            </Box>
-            <Box sx={{ padding: 2, border: "1px solid #ccc" }}>
-              <Typography variant="body2">
-                추가 정보 {index + 1} More details here.
-              </Typography>
-            </Box>
-          </Box>
-        ))}
+            당신의 기계.
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: "black",
+              fontSize: { xs: "16px", md: "24px" },
+              opacity: "50%",
+              paddingLeft: { xs: 0, md: "8px" },
+            }}
+          >
+            당신이 원하는 대로.
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            component="img"
+            src={ANDImage.src}
+            sx={{
+              width: "80%", // 이미지의 가로 크기 조정
+              height: "300px", // 이미지의 높이 조정
+              objectFit: "none", // 이미지를 자르지 않고 원본 크기를 유지
+              objectPosition: "top", // 이미지의 상단 부분만 보이도록 설정
+              borderRadius: "18px",
+            }}
+          />
+        </Box>
       </Box>
-    </Container>
+
+      <Box
+        sx={{
+          mx: "170px",
+          my: "60px",
+          padding: 2,
+          backgroundColor: "#F5F5F7",
+        }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} lg={3}>
+            <ANDComposeCard imageSrc={ANDImage.src} text="AND" />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <ANDComposeCard imageSrc={ANDImage.src} text="통신선" />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <ANDComposeCard imageSrc={ANDImage.src} text="전원" />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <ANDComposeCard imageSrc={ANDImage.src} text="네트워크" />
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Box
+        sx={{
+          mx: "170px",
+          my: "60px",
+          padding: 2,
+        }}
+      >
+        <Box sx={{ padding: 4 }}>
+          {/* 상단 타이포그래피 */}
+          <Typography
+            variant="h5"
+            sx={{ marginBottom: 4, textAlign: "center" }}
+          >
+            내 기계와 함께 누릴 수<br />
+            있는 놀라움의 세계.
+          </Typography>
+
+          {/* 그리드 컨테이너 */}
+          <Grid container spacing={4}>
+            {[1, 2, 3].map((item, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                {/* 각 파트 박스 */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    padding: 2,
+                    // backgroundColor: "#F5F5F7",
+                    // borderRadius: "8px",
+                    // boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  {/* 상단 작은 네모난 그림 */}
+                  <Box
+                    component="img"
+                    src={ANDImage.src}
+                    alt="Small Box"
+                    sx={{
+                      width: "50px",
+                      height: "50px",
+                      backgroundColor: "#ccc",
+                      borderRadius: "4px",
+                      marginBottom: 2,
+                    }}
+                  />
+
+                  {/* 중간 타이포그래피 */}
+                  <Typography variant="h6" sx={{ marginBottom: 2 }}>
+                    DNC(M198) 연속가공
+                  </Typography>
+
+                  {/* 하단 타이포그래피 */}
+                  <Typography variant="body2" color="textSecondary">
+                    USB, CF카드 없이 가장 간단한 데이터 전송
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          mx: "170px",
+          my: "60px",
+          padding: 2,
+        }}
+      >
+        <FAQSection />
+      </Box>
+    </>
   );
 }

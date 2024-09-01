@@ -31,10 +31,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
       <Box
         sx={{
           position: 'absolute',
+          alignItems: 'center',
+          display: 'flex',
+          justifyContent: 'stretch',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: {xs: '80%', lg: '30%'}, // 모달 크기를 키웁니다.
+          height: "20%",
           bgcolor: 'background.paper',
           borderRadius: '12px',
           boxShadow: 24,
@@ -56,7 +60,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
           <CloseIcon />
         </IconButton>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
           <Button
             href="tel:010-6567-2785"
             onClick={handleCopyCall}
