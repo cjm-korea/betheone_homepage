@@ -104,14 +104,14 @@ const ProductANDCarousel: React.FC = () => {
           />
           <ProductCardAND
             title="AND for LAN"
-            subtitle="더 빨라진 인프라."
+            subtitle="작업을 가볍게."
             imageSrc={LAN_use1.src.toString()}
             colorconcept="black"
             href={"/and"}
           />
           <ProductCardAND
             title="AND for RS232"
-            subtitle="작업을 가볍게."
+            subtitle="더 빨라진 인프라."
             imageSrc={RS232_use2.src.toString()}
             colorconcept="white"
             href={"/and"}

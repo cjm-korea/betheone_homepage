@@ -20,7 +20,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        {/* <Main_1 /> */}
+        <Main_1 />
         <Main_2 />
         <Main_3 />
         <Box

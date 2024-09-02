@@ -36,7 +36,7 @@ export default function AND() {
   const component3Ref = useRef<HTMLDivElement>(null);
   const component4Ref = useRef<HTMLDivElement>(null);
 
-  const calculatePrice = () => {
+  const calculatePrice = (networkOption: "O" | "X") => {
     let optionPrice: number = 0;
 
     if (selectedModel === "LAN") {
@@ -45,7 +45,7 @@ export default function AND() {
       optionPrice = selectedOption === "Option1" ? 500000 : 700000;
     }
 
-    let networkPrice: number = selectedNetwork === "O" ? 0 : 100000;
+    let networkPrice: number = networkOption === "O" ? 0 : 100000;
 
     setFinalPrice(optionPrice + networkPrice);
   };
@@ -81,11 +81,9 @@ export default function AND() {
         block: "center",
       });
     }
-  };
 
-  useEffect(() => {
-    calculatePrice();
-  }, [selectedModel, selectedNetwork, selectedNetwork]);
+    calculatePrice(option);
+  };
 
   const getBoxText2 = () => {
     switch (selectedModel) {
@@ -724,11 +722,11 @@ export default function AND() {
                                 >
                                   {selectedModel === "LAN"
                                     ? selectedOption === "Option1"
-                                      ? "M198, DNC(REMOTE)가공 사용 가능"
-                                      : "데이터 전송"
+                                      ? "데이터 입력, 출력"
+                                      : "M198, DNC(REMOTE)가공 사용 가능"
                                     : selectedOption === "Option1"
-                                    ? "3인치 디스플레이"
-                                    : "10인치 디스플레이"}
+                                      ? "3인치 디스플레이"
+                                      : "10인치 디스플레이"}
                                 </Typography>
                                 <Typography
                                   variant="body2"
@@ -892,46 +890,111 @@ export default function AND() {
 
           {/* 그리드 컨테이너 */}
           <Grid container spacing={4}>
-            {[1, 2, 3].map((item, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                {/* 각 파트 박스 */}
+            <Grid item xs={12} sm={6} md={4}>
+              {/* 각 파트 박스 */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: 2,
+                }}
+              >
+                {/* 상단 작은 네모난 그림 */}
                 <Box
+                  component="img"
+                  src={ANDImage.src}
+                  alt="Small Box"
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    padding: 2,
-                    // backgroundColor: "#F5F5F7",
-                    // borderRadius: "8px",
-                    // boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "#ccc",
+                    borderRadius: "4px",
+                    marginBottom: 2,
                   }}
-                >
-                  {/* 상단 작은 네모난 그림 */}
-                  <Box
-                    component="img"
-                    src={ANDImage.src}
-                    alt="Small Box"
-                    sx={{
-                      width: "50px",
-                      height: "50px",
-                      backgroundColor: "#ccc",
-                      borderRadius: "4px",
-                      marginBottom: 2,
-                    }}
-                  />
+                />
 
-                  {/* 중간 타이포그래피 */}
-                  <Typography variant="h6" sx={{ marginBottom: 2 }}>
-                    DNC(M198) 연속가공
-                  </Typography>
+                {/* 중간 타이포그래피 */}
+                <Typography variant="h6" sx={{ marginBottom: 2 }}>
+                  DNC(M198) 연속가공
+                </Typography>
 
-                  {/* 하단 타이포그래피 */}
-                  <Typography variant="body2" color="textSecondary">
-                    USB, CF카드 없이 가장 간단한 데이터 전송
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
+                {/* 하단 타이포그래피 */}
+                <Typography variant="body2" color="textSecondary">
+                  USB, CF카드 없이 데이터를 바로 보내고, 즉시 가공
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              {/* 각 파트 박스 */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: 2,
+                }}
+              >
+                {/* 상단 작은 네모난 그림 */}
+                <Box
+                  component="img"
+                  src={ANDImage.src}
+                  alt="Small Box"
+                  sx={{
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "#ccc",
+                    borderRadius: "4px",
+                    marginBottom: 2,
+                  }}
+                />
+
+                {/* 중간 타이포그래피 */}
+                <Typography variant="h6" sx={{ marginBottom: 2 }}>
+                  무선 네트워크 인프라
+                </Typography>
+
+                {/* 하단 타이포그래피 */}
+                <Typography variant="body2" color="textSecondary">
+                  기계와 별도의 무선 네트워크 구축으로 현장을 간단하게
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              {/* 각 파트 박스 */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: 2,
+                }}
+              >
+                {/* 상단 작은 네모난 그림 */}
+                <Box
+                  component="img"
+                  src={ANDImage.src}
+                  alt="Small Box"
+                  sx={{
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "#ccc",
+                    borderRadius: "4px",
+                    marginBottom: 2,
+                  }}
+                />
+
+                {/* 중간 타이포그래피 */}
+                <Typography variant="h6" sx={{ marginBottom: 2 }}>
+                  모든 기계를 디지털화
+                </Typography>
+
+                {/* 하단 타이포그래피 */}
+                <Typography variant="body2" color="textSecondary">
+                  RS232, LAN 통신으로 구형, 신형 기계 모두 호환
+                </Typography>
+              </Box>
+            </Grid>
           </Grid>
         </Box>
       </Box>
