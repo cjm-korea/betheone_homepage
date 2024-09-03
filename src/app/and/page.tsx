@@ -131,11 +131,11 @@ export default function AND() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsSticky(!entry.isIntersecting);
+        setIsSticky(entry.isIntersecting);
       },
       {
         root: null,
-        threshold: 0,
+        threshold: 0.1,
       }
     );
 
@@ -168,7 +168,10 @@ export default function AND() {
           >
             <Box
               sx={{
-                px: "170px",
+                px: {
+                  xs: "30px",
+                  lg: "170px",
+                },
                 py: "60px",
                 height: "auto",
                 color: "white",
@@ -203,25 +206,27 @@ export default function AND() {
               >
                 {/* 좌측 이미지 */}
                 <Box
-                  ref={stickyRef}
+                  // ref={stickyRef}
                   sx={{
                     flex: 1,
-                    minWidth: "400px",
+                    minWidth: "250px",
                     position: !isSticky ? "sticky" : "static",
-                    top: !isSticky ? "25%" : "auto",
-                    height: "fit-content",
+                    top: "25%",
+                    // top:  !isSticky ? "25%" : "auto",
+                    height: "100%",
                     overflow: "hidden",
                     transition: "position 0.3s ease",
                     maxWidth: "592px",
                   }}
                 >
-                  <Box sx={{ minWidth: "400px", minHeight: "fit-content" }}>
+                  <Box sx={{ width: "100%", height: "100%" }}>
                     <Box
+                      ref={stickyRef}
                       component="img"
                       src={ANDImage.src}
                       sx={{
                         width: "100%",
-                        height: "100%",
+                        height: "auto",
                         objectFit: "cover",
                         borderRadius: "18px",
                       }}
@@ -230,9 +235,9 @@ export default function AND() {
                 </Box>
                 {/* 우측 내용 우선 */}
                 <Box
-                  ref={containerRef}
+                  // ref={containerRef}
                   sx={{
-                    flex: 1.2,
+                    flex: 1.5,
                     paddingX: 2,
                     minWidth: 0,
                     height: "100%",
@@ -240,7 +245,8 @@ export default function AND() {
                 >
                   {/* 1 컴포넌트 */}
                   <Box
-                    sx={{ width: "100%", padding: 2, mt: "10vh", mb: "50vh" }}
+                    ref={containerRef}
+                    sx={{ width: "100%", padding: 2, mb: "50vh" }}
                   >
                     <Box
                       sx={{
@@ -274,7 +280,7 @@ export default function AND() {
                     </Box>
 
                     <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} lg={6}>
                         <Card
                           variant="outlined"
                           onClick={() => handleSelectModel("LAN")}
@@ -283,6 +289,8 @@ export default function AND() {
                             borderColor:
                               selectedModel === "LAN" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1,
+                            height: "100%",
                           }}
                         >
                           <CardActionArea>
@@ -323,7 +331,7 @@ export default function AND() {
                         </Card>
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} lg={6}>
                         <Card
                           variant="outlined"
                           onClick={() => handleSelectModel("RS232")}
@@ -332,6 +340,8 @@ export default function AND() {
                             borderColor:
                               selectedModel === "RS232" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1,
+                            height: "100%",
                           }}
                         >
                           <CardActionArea>
@@ -411,7 +421,7 @@ export default function AND() {
                     </Box>
 
                     <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} lg={6}>
                         <Card
                           variant="outlined"
                           onClick={() => handleSelectOption("Option1")}
@@ -420,6 +430,7 @@ export default function AND() {
                             borderColor:
                               selectedOption === "Option1" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1
                           }}
                         >
                           <CardActionArea>
@@ -460,7 +471,7 @@ export default function AND() {
                         </Card>
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} lg={6}>
                         <Card
                           variant="outlined"
                           onClick={() => handleSelectOption("Option2")}
@@ -469,6 +480,7 @@ export default function AND() {
                             borderColor:
                               selectedOption === "Option1" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1
                           }}
                         >
                           <CardActionArea>
@@ -548,7 +560,7 @@ export default function AND() {
                     </Box>
 
                     <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} lg={6}>
                         <Card
                           variant="outlined"
                           onClick={() => handleSelectNetwork("O")}
@@ -557,6 +569,7 @@ export default function AND() {
                             borderColor:
                               selectedNetwork === "O" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1
                           }}
                         >
                           <CardActionArea>
@@ -597,7 +610,7 @@ export default function AND() {
                         </Card>
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12} lg={6}>
                         <Card
                           variant="outlined"
                           onClick={() => handleSelectNetwork("X")}
@@ -606,6 +619,7 @@ export default function AND() {
                             borderColor:
                               selectedNetwork === "X" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1
                           }}
                         >
                           <CardActionArea>
@@ -650,7 +664,7 @@ export default function AND() {
                   {/* 4 컴포넌트 */}
                   <Box
                     ref={component4Ref}
-                    sx={{ width: "100%", padding: 2, mb: "15vh" }}
+                    sx={{ width: "100%", padding: 2 }}
                   >
                     {/* 1. 상단 타이포그래피 */}
                     <Box
@@ -694,6 +708,7 @@ export default function AND() {
                             borderColor:
                               selectedModel === "RS232" ? "#006bff" : "gray",
                             transition: "border-color 0.3s ease",
+                            flex: 1
                           }}
                         >
                           <CardActionArea>
@@ -849,7 +864,10 @@ export default function AND() {
 
       <Box
         sx={{
-          mx: "170px",
+          mx: {
+            xs: "30px",
+            lg: "170px",
+          },
           my: "60px",
           padding: 2,
           backgroundColor: "#F5F5F7",
@@ -873,7 +891,10 @@ export default function AND() {
 
       <Box
         sx={{
-          mx: "170px",
+          mx: {
+            xs: "30px",
+            lg: "170px",
+          },
           my: "60px",
           padding: 2,
         }}
@@ -1001,7 +1022,10 @@ export default function AND() {
 
       <Box
         sx={{
-          mx: "170px",
+          mx: {
+            xs: "30px",
+            lg: "170px",
+          },
           my: "60px",
           padding: 2,
         }}

@@ -3,9 +3,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import LAN_use1 from "@/images/LAN_use1.jpg";
-import LAN_use2 from "@/images/LAN_use2.jpg";
-import RS232_use1 from "@/images/RS232_use1.jpg";
-import RS232_use2 from "@/images/RS232_use2.jpg";
 
 export const Main_1 = () => {
   return (
@@ -22,7 +19,7 @@ export const Main_1 = () => {
             xs: "30px",
             md: "170px",
           },
-          py: "60px",
+          py: "100px",
           height: "auto",
           color: "white",
           display: "flex",
@@ -63,7 +60,7 @@ export const Main_1 = () => {
               fontWeight: "bold",
             }}
           >
-            인프라는 가볍게, 작업은 쉽고 빠르게
+            가장 쉬운 인프라 솔루션
           </Typography>
           <Typography
             sx={{
@@ -75,20 +72,19 @@ export const Main_1 = () => {
               opacity: "50%",
             }}
           >
-            검증받은 기술력으로 믿고 맡기는 무선 인프라
+            데이터 전송 및 관리
           </Typography>
         </Box>
-        {/* 이미지 추가 */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: {
-              xs: "column", // 작은 화면에서는 세로로 나열
-              md: "row",    // 큰 화면에서는 가로로 나열
+              xs: "column",
+              md: "row",
             },
-            gap: "20px", // 이미지 간의 간격
+            gap: 3,
             width: "100%",
           }}
         >
