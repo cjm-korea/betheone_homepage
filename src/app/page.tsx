@@ -5,7 +5,7 @@ import { Main_1 } from "@/components/section/main/Main_1";
 import { Main_2 } from "@/components/section/main/Main_2";
 import { Main_3 } from "@/components/section/main/Main_3";
 import { Main_4 } from "@/components/section/main/Main_4";
-import UserCarousel from "@/components/UserCarousel";
+import UserCarousel from "@/app/mainComponents/UserCarousel";
 
 
 

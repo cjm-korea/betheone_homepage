@@ -4,28 +4,6 @@ import React from "react";
 import { Box, styled, keyframes } from "@mui/system";
 import { Typography } from "@mui/material";
 
-import AJTech from "@/images/company/AJTech.png"
-import Bion from "@/images/company/Bion.png"
-import ConnectFactory from "@/images/company/ConnectFactory.png"
-import Datagobongbab from "@/images/company/Datagobongbab.png"
-import FactoryDoctor from "@/images/company/FactoryDoctor.png"
-import FindMachine from "@/images/company/FindMachine.png"
-import Future from "@/images/company/Future.png"
-import Hinols from "@/images/company/Hinols.png"
-import IdeaPlus from "@/images/company/IdeaPlus.png"
-import Juho from "@/images/company/Juho.png"
-
-import KHKorea from "@/images/company/KHKorea.png"
-import Maketen from "@/images/company/Maketen.png"
-import Mungil from "@/images/company/Mungil.png"
-import Royal from "@/images/company/Royal.png"
-import SafePro from "@/images/company/SafePro.png"
-import Sbhe from "@/images/company/Sbhe.png"
-import Sinsung from "@/images/company/Sinsung.png"
-import TurningSolution from "@/images/company/TurningSolution.png"
-import WoojungTMS from "@/images/company/WoojungTMS.png"
-import YoungGwang from "@/images/company/YoungGwang.png"
-
 const row1 = [
   '에이앤제이테크',
   '(주)바이온',
@@ -41,6 +19,7 @@ const row2 = [
   '아이디어플러스',
   '(주)주호레포츠',
   '케이에이치코리아',
+  '천일이엔지',
   '(주)메이크텐',
   '(주)명일정밀',
   '(조)로얄신소재',
@@ -66,6 +45,7 @@ const row2_m = [
   '(주)주호레포츠',
   '케이에이치코리아',
   '신성나노텍',
+  '천일이엔지'
 ];
 
 const row3_m = [
@@ -329,11 +309,11 @@ const ImageGroup = styled(Box)(({ theme }) => ({
   boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.1)",
   backgroundColor: "white",
   [theme.breakpoints.down("lg")]: {
-    width: "300px",  // 작은 화면에서는 약간 축소
+    width: "300px",
     height: "150px",
   },
   [theme.breakpoints.down("md")]: {
-    width: "200px",  // 더 작은 화면에서는 더 축소
+    width: "200px",
     height: "100px",
   },
   [theme.breakpoints.up("lg")]: {
@@ -341,20 +321,5 @@ const ImageGroup = styled(Box)(({ theme }) => ({
     height: "150px",
   },
 }));
-
-// const Image = styled("img")(({ theme }) => ({
-//   objectFit: "contain",
-//   aspectRatio: "16/9",
-//   [theme.breakpoints.down("lg")]: {
-//     padding: 0,
-//     width: "32px",
-//     height: "100%"
-//   },
-//   [theme.breakpoints.up("lg")]: {
-//     padding: "2px 5px",
-//     width: "100%",
-//     height: "100%"
-//   },
-// }));
 
 export default UserCarousel;

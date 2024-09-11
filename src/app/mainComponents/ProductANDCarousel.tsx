@@ -4,12 +4,12 @@ import React, { forwardRef } from "react";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
-import ProductCardAND from "./ProductCardAND";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import LAN_use1 from "@/images/LAN_use1.jpg";
 import LAN_use2 from "@/images/LAN_use2.jpg";
 import RS232_use1 from "@/images/RS232_use1.jpg";
 import RS232_use2 from "@/images/RS232_use2.jpg";
+import ProductSquareBox from "../../components/ProductSquareBox";
 
 const StyledSlider = styled(
   forwardRef<Slider, any>((props, ref) => <Slider ref={ref} {...props} />)
@@ -95,32 +95,32 @@ const ProductANDCarousel: React.FC = () => {
         <ArrowLeft sx={{ width: "48px", height: "48px" }} />
       </ArrowButton>
       <StyledSlider {...settings} ref={slider}>
-          <ProductCardAND
+          <ProductSquareBox
             title="AND for RS232"
             subtitle="놀라움은 구형 기계부터."
             imageSrc={RS232_use1.src.toString()}
-            colorconcept="black"
+            colorConcept="black"
             href={"/and"}
           />
-          <ProductCardAND
+          <ProductSquareBox
             title="AND for LAN"
             subtitle="작업을 가볍게."
             imageSrc={LAN_use1.src.toString()}
-            colorconcept="black"
+            colorConcept="black"
             href={"/and"}
           />
-          <ProductCardAND
+          <ProductSquareBox
             title="AND for RS232"
-            subtitle="더 빨라진 인프라."
+            subtitle="더 간단한 인프라."
             imageSrc={RS232_use2.src.toString()}
-            colorconcept="white"
+            colorConcept="white"
             href={"/and"}
           />
-          <ProductCardAND
+          <ProductSquareBox
             title="AND for LAN"
             subtitle="또 다른 경쟁력."
             imageSrc={LAN_use2.src.toString()}
-            colorconcept="white"
+            colorConcept="white"
             href={"/and"}
           />
       </StyledSlider>

@@ -1,4 +1,4 @@
-import ProductCarousel from "@/components/ui/ProductCarousel";
+import ProductCarousel from "@/app/mainComponents/ProductCarousel";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 

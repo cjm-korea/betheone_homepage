@@ -37,7 +37,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: {xs: '80%', lg: '30%'}, // 모달 크기를 키웁니다.
+          width: {xs: '80%', lg: '30%'},
           height: "20%",
           bgcolor: 'background.paper',
           borderRadius: '12px',
@@ -69,8 +69,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
             sx={{
               mb: 2,
               color: 'black',
-              width: '100%', // 버튼의 너비를 100%로 맞춥니다.
-              justifyContent: 'space-between', // 아이콘과 텍스트 간의 공간을 동일하게 설정
+              width: '100%',
+              justifyContent: 'space-between',
             }}
           >
             010-6567-2785
@@ -81,8 +81,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
             endIcon={<ContentCopyIcon />}
             sx={{
               color: 'black',
-              width: '100%', // 버튼의 너비를 100%로 맞춥니다.
-              justifyContent: 'space-between', // 아이콘과 텍스트 간의 공간을 동일하게 설정
+              width: '100%',
+              justifyContent: 'space-between',
             }}
           >
             sales@smart-betheone.com

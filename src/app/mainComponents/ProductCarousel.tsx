@@ -5,13 +5,13 @@ import Slider from "react-slick";
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-import ProductCard from "./ProductCard";
+// import ProductCard from "./ProductCard";
 import AND from "@/images/AND.jpg";
 import IntelliCAD from "@/images/IntelliCAD.jpg";
 import Scam from "@/images/Scam.jpg";
 import Monitoring from "@/images/Monitoring.jpg";
+import ProductSquareBox from "../../components/ProductSquareBox";
 
-// StyledSlider를 styled로 스타일링
 const StyledSlider = styled(
   forwardRef<Slider, any>((props, ref) => <Slider ref={ref} {...props} />)
 )({
@@ -19,7 +19,6 @@ const StyledSlider = styled(
   overflow: "visible",
 });
 
-// 화살표 버튼을 포함한 상위 Box 스타일
 const CarouselContainer = styled(Box)({
   width: "100%",
   height: "fit",
@@ -33,7 +32,6 @@ const CarouselContainer = styled(Box)({
   },
 });
 
-// 화살표 버튼 스타일
 const ArrowButton = styled(Box)({
   width: "48px",
   height: "48px",
@@ -98,29 +96,33 @@ const ProductCarousel: React.FC = () => {
         <ArrowLeft sx={{ width: "48px", height: "48px" }} />
       </ArrowButton>
       <StyledSlider {...settings} ref={slider}>
-        <ProductCard
+        <ProductSquareBox
           imageSrc={AND.src.toString()}
           subtitle={"어디서나 완벽하게."}
           title={"부착형 무선 데이터서버"}
           colorConcept="black"
+          href={"#"}
         />
-        <ProductCard
+        <ProductSquareBox
           imageSrc={Monitoring.src.toString()}
           subtitle={"항상 정확하게."}
           title={"데이터 모니터링 & 공구 파손 감지"}
           colorConcept="black"
+          href={"#"}
         />
-        <ProductCard
+        <ProductSquareBox
           imageSrc={IntelliCAD.src.toString()}
           subtitle={"언제나 합리적인 선택."}
           title={"Intelli CMS CAD"}
           colorConcept="white"
+          href={"#"}
         />
-        <ProductCard
+        <ProductSquareBox
           imageSrc={Scam.src.toString()}
           subtitle={"무엇이든 간단하게."}
           title={"S-CAM"}
           colorConcept="white"
+          href={"#"}
         />
       </StyledSlider>
       <ArrowButton

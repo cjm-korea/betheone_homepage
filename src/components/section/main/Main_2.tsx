@@ -1,6 +1,6 @@
 "use client";
 
-import ProductANDCarousel from "@/components/ui/ProductANDCarousel";
+import ProductANDCarousel from "@/app/mainComponents/ProductANDCarousel";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
