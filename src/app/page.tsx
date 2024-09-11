@@ -7,8 +7,6 @@ import { Main_3 } from "@/components/section/main/Main_3";
 import { Main_4 } from "@/components/section/main/Main_4";
 import UserCarousel from "@/app/mainComponents/UserCarousel";
 
-
-
 export default function Home() {
   return (
     <Container maxWidth="lg">
@@ -22,7 +20,7 @@ export default function Home() {
       >
         <Main_1 />
         <Main_2 />
-        <Main_3 />
+        <Main_4 />
         <Box
           sx={{
             width: "100vw",
@@ -32,7 +30,7 @@ export default function Home() {
         >
           <UserCarousel />
         </Box>
-        <Main_4 />
+        <Main_3 />
       </Box>
     </Container>
   );

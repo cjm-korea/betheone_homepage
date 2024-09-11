@@ -8,7 +8,6 @@ const row1 = [
   '에이앤제이테크',
   '(주)바이온',
   '(주)커넥트팩토리',
-  '(주)데이터고봉밥',
   '(주)팩토리닥터',
   '(주)파인드머신',
   '(주)퓨쳐테크',
@@ -295,7 +294,7 @@ const MarqueeGroup = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "space-around",
   whiteSpace: "nowrap",
-  width: theme.breakpoints.down('lg') ? '210%' : '150%',
+  width: theme.breakpoints.down('lg') ? '250%' : '170%',
   animation: `${scrollX} 30s linear infinite`,
 }));
 

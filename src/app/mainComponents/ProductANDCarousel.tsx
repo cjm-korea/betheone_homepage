@@ -100,28 +100,28 @@ const ProductANDCarousel: React.FC = () => {
             subtitle="놀라움은 구형 기계부터."
             imageSrc={RS232_use1.src.toString()}
             colorConcept="black"
-            href={"/and"}
+            href={"/"}
           />
           <ProductSquareBox
             title="AND for LAN"
             subtitle="작업을 가볍게."
             imageSrc={LAN_use1.src.toString()}
             colorConcept="black"
-            href={"/and"}
+            href={"/"}
           />
           <ProductSquareBox
             title="AND for RS232"
             subtitle="더 간단한 인프라."
             imageSrc={RS232_use2.src.toString()}
             colorConcept="white"
-            href={"/and"}
+            href={"/"}
           />
           <ProductSquareBox
             title="AND for LAN"
             subtitle="또 다른 경쟁력."
             imageSrc={LAN_use2.src.toString()}
             colorConcept="white"
-            href={"/and"}
+            href={"/"}
           />
       </StyledSlider>
       <ArrowButton

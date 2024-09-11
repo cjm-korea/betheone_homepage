@@ -54,7 +54,7 @@ export const Main_3 = () => {
               fontWeight: "bold",
             }}
           >
-            가장 쉬운 솔루션.
+            추가적인 솔루션.
           </Typography>
           <Typography
             sx={{
