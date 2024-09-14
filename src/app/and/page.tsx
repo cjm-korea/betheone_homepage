@@ -15,8 +15,8 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import ANDImage from "@/images/LAN_use1.jpg";
 import Icon_DNC from "@/icons/Icon_DNC.png";
-import Image_Cable from "@/images/cable.png";
-import Image_Power from "@/images/power.png";
+import Image_Cable from "@/images/Cable.png";
+import Image_Power from "@/images/Power.png";
 import Image_AND from "@/images/and_only.png";
 import Icon_Wireless from "@/icons/Icon_Wireless.png";
 import Icon_Digital from "@/icons/Icon_Digital.png";
