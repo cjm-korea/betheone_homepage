@@ -83,6 +83,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
               color: 'black',
               width: '100%',
               justifyContent: 'space-between',
+              textTransform: 'none'
             }}
           >
             sales@smart-betheone.com

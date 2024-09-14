@@ -12,6 +12,8 @@ const ANDComposeCard: React.FC<ANDComposeCardProps> = ({ imageSrc, text }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '100%',
         maxWidth: '400px',
         backgroundColor: 'transparent',
@@ -24,13 +26,13 @@ const ANDComposeCard: React.FC<ANDComposeCardProps> = ({ imageSrc, text }) => {
         src={imageSrc}
         alt="Card Image"
         sx={{
-          width: '100%',
-          height: 'auto',
-          objectFit: 'cover',
+          width: 300,
+          height: 300,
+          objectFit: 'contain',
         }}
       />
       <Box sx={{ padding: 2 }}>
-        <Typography variant="body1" align="center">
+        <Typography variant="body1" align="center" fontSize={'1.4rem'}>
           {text}
         </Typography>
       </Box>
