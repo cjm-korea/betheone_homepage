@@ -1,11 +1,11 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import LAN_use1 from "@/images/LAN_use1.jpg";
 import RS232_use2 from "@/images/RS232_use2.jpg";
 
 export const Main_1 = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -21,7 +21,7 @@ export const Main_1 = () => {
             md: "170px",
           },
           pt: "100px",
-          pb: 0,
+          pb: "60px",
           height: "auto",
           color: "white",
           display: "flex",
@@ -62,7 +62,8 @@ export const Main_1 = () => {
               fontWeight: "bold",
             }}
           >
-            가장 쉬운 인프라 솔루션
+            가장 쉬운 공작기계,{" "}
+            {useMediaQuery(theme.breakpoints.down('md')) ? <br /> : null}제조 인프라 솔루션
           </Typography>
           <Typography
             sx={{
