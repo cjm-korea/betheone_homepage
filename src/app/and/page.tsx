@@ -7,7 +7,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: '부착형 무선 데이터 서버',
   description: "제조 인프라의 혁신 부착형 무선 데이터 서버를 소개합니다.",
-  keywords: "제조 솔루션, 부착형 무선 데이터 서버, 화낙, LAN, RS232, 스마트팩토리, 모니터링",
+  keywords: "가격, 가격확인, 부착형 무선 데이터 서버, 화낙, LAN, RS232, 스마트팩토리, 모니터링",
 }
 
 export default function AND() {
