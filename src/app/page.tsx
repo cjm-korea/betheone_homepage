@@ -11,7 +11,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: '공작기계 솔루션 비더원',
   description: "가장 쉽고 합리적인 제조 솔루션 공작기계 부착형 무선 데이터 서버, 캐드, 캠, 스마트팩토리, 모니터링 서비스를 소개합니다.",
-  keywords: "제조 솔루션, 부착형 무선 데이터 서버, 화낙, LAN, RS232, 캐드, 캠, 스마트팩토리, 모니터링",
+  keywords: "제조 솔루션, 부착형 무선 데이터 서버, 무선 데이터 서버, 데이터 서버, 화낙, LAN, RS232, 캐드, 캠, 스마트팩토리, 모니터링",
 }
 
 export default function Home() {
