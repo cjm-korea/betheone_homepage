@@ -8,8 +8,8 @@ import {
 } from "@mui/material";
 import ANDImage from "@/images/LAN_use1.jpg";
 import ANDComposeCard from "@/app/and/components/ANDComposeCard";
-import Image_Cable from "@/images/cable.png";
-import Image_Power from "@/images/power.png";
+import Image_Cable from "@/images/Cable.png";
+import Image_Power from "@/images/Power.png";
 import Image_AND from "@/images/and_only.png";
 import Icon_DNC from "@/icons/Icon_DNC.png";
 import Icon_Wireless from "@/icons/Icon_Wireless.png";
