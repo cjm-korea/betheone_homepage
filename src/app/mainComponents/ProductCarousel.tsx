@@ -5,10 +5,9 @@ import Slider from "react-slick";
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-// import ProductCard from "./ProductCard";
 import AND from "@/images/AND.jpg";
 import IntelliCAD from "@/images/IntelliCAD.jpg";
-import Scam from "@/images/Scam.jpg";
+import Scam from "@/images/Scam.png";
 import Monitoring from "@/images/Monitoring.jpg";
 import ProductSquareBox from "../../components/ProductSquareBox";
 

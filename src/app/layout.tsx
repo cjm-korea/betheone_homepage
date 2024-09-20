@@ -31,9 +31,6 @@ export const metadata: Metadata = {
     description: '가장 쉽고 합리적인 제조 솔루션 비더원',
     images: ['/Logo.png']
   }
-  // icons: {
-    // icon: "/betheone_icon.png"
-  // }
 }
 
 export default function RootLayout(props: { children: React.ReactNode }) {

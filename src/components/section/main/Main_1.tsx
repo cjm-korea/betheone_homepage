@@ -3,6 +3,8 @@
 import { Box, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import RS232_use2 from "@/images/RS232_use2.jpg";
+import Before_and from "@/images/Before_and.png";
+import After_and from "@/images/After_and.png";
 
 export const Main_1 = () => {
   const theme = useTheme();
@@ -87,36 +89,36 @@ export const Main_1 = () => {
               xs: "column",
               md: "row",
             },
-            gap: 3,
+            gap: 5,
             width: "100%",
           }}
         >
           <Box
             component="img"
-            src={RS232_use2.src} // 첫 번째 이미지 경로
+            src={Before_and.src}
             alt="Image 1"
             sx={{
               width: {
-                xs: "100%", // 작은 화면에서는 이미지가 전체 너비를 차지
-                md: "45%", // 큰 화면에서는 이미지가 45% 너비를 차지
+                xs: "100%",
+                md: "40%",
               },
               height: "auto",
-              borderRadius: "8px", // 이미지 모서리를 둥글게
+              borderRadius: "8px",
             }}
           />
-          {/* <Box
+          <Box
             component="img"
-            src={LAN_use1.src} // 두 번째 이미지 경로
+            src={After_and.src}
             alt="Image 2"
             sx={{
               width: {
-                xs: "100%", // 작은 화면에서는 이미지가 전체 너비를 차지
-                md: "45%",  // 큰 화면에서는 이미지가 45% 너비를 차지
+                xs: "100%",
+                md: "40%",
               },
               height: "auto",
-              borderRadius: "8px", // 이미지 모서리를 둥글게
+              borderRadius: "8px",
             }}
-          /> */}
+          />
         </Box>
       </Box>
     </Box>

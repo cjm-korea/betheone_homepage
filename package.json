@@ -22,7 +22,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-slick": "^0.30.2",
-    "sharp": "^0.33.4",
+    "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
