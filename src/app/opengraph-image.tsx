@@ -5,15 +5,15 @@ export const runtime = 'edge'
 // Image metadata
 export const alt = '공작기계 솔루션 비더원'
 export const size = {
-  width: 129,
-  height: 60,
+  width: 1200,
+  height: 630,
 }
 
 export const contentType = 'image/png'
 
 // Image generation
 export default async function Image() {
-  const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/Logo.png`; // 절대 URL을 사용
+  const imageUrl = `/Logo.png`;
 
   return new ImageResponse(
     (
