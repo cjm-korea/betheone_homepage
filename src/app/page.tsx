@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: '/Logo.png',
+        url: `${siteUrl}/Logo.png`,
         width: 800,
         height: 600,
         alt: 'Betheone Logo',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '공작기계 솔루션 비더원',
     description: '가장 쉽고 빠른 부착형 데이터 서버',
-    images: ['/Logo.png'],
+    images: [`${siteUrl}/Logo.png`],
   },
 }
 
