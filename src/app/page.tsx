@@ -10,7 +10,7 @@ import type { Metadata } from 'next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  // metadataBase: new URL(siteUrl),
   title: '부착형 무선 데이터 서버',
   description: "제조 인프라의 혁신 부착형 무선 데이터 서버를 소개합니다.",
   keywords: "가격, 가격확인, 부착형 무선 데이터 서버, 무선 데이터 서버, 데이터 서버, 화낙, LAN, RS232, 스마트팩토리, 모니터링",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${siteUrl}/Logo.png`,
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
         alt: 'Betheone Logo',
       },
     ],
