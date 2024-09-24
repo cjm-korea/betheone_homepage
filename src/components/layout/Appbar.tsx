@@ -83,7 +83,7 @@ import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
-import Logopath from "/public/Logo.png";
+import Logopath from "@/public/Logo.png";
 import Link from "next/link";
 import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';

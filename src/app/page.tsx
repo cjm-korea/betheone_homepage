@@ -7,6 +7,7 @@ import { Main_3 } from "@/components/section/main/Main_3";
 import { Main_4 } from "@/components/section/main/Main_4";
 import UserCarousel from "@/app/mainComponents/UserCarousel";
 import type { Metadata } from 'next'
+import Logopath from "@/public/Logo.png";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/Logo.png`,
+        url: `${Logopath}`,
         width: 1200,
         height: 630,
         alt: 'Betheone Logo',
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '공작기계 솔루션 비더원',
     description: '가장 쉽고 빠른 부착형 데이터 서버',
-    images: [`${siteUrl}/Logo.png`],
+    images: [`${Logopath}`],
   },
 }
 
