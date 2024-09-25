@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-import LAN_use1 from "@/images/LAN_use1.jpg";
+import LAN_use3 from "@/images/LAN_use3.jpg";
 import LAN_use2 from "@/images/LAN_use2.jpg";
 import RS232_use1 from "@/images/RS232_use1.jpg";
 import RS232_use2 from "@/images/RS232_use2.jpg";
@@ -105,8 +105,8 @@ const ProductANDCarousel: React.FC = () => {
           />
           <ProductSquareBox
             title="AND for LAN"
-            subtitle="작업을 가볍게."
-            imageSrc={LAN_use1.src.toString()}
+            subtitle="공장을 가볍게."
+            imageSrc={LAN_use3.src.toString()}
             colorConcept="black"
             href={ANDhref}
           />

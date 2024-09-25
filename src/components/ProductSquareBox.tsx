@@ -51,9 +51,9 @@ const StyledLowerBox = styled(Box)({
 });
 
 const StyledImage = styled("img")(({ theme }) => ({
-  width: "auto",
+  width: theme.breakpoints.up("lg") ? 400 : 330,
   height: theme.breakpoints.up("lg") ? 368 : 258, // lg 이상이면 368, 그렇지 않으면 258
-  objectFit: "cover",
+  objectFit: "fill",
   borderBottomRightRadius: "18px",
   borderBottomLeftRadius: "18px",
 }));
