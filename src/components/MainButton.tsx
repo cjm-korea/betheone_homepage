@@ -27,14 +27,13 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 const MainButton: React.FC<MainButtonProps> = ({ href, children, sx }) => {
-  if (href) {
-    return (
-      <Link href={href} passHref>
-        <CustomButton sx={sx}>{children}</CustomButton>
-      </Link>
-    );
-  }
-  return <CustomButton sx={sx}>{children}</CustomButton>;
+  return href ? (
+    <Link href={href} passHref>
+      <CustomButton sx={sx}>{children}</CustomButton>
+    </Link>
+  ) : (
+    <CustomButton sx={sx}>{children}</CustomButton>
+  );
 };
 
 export default MainButton;

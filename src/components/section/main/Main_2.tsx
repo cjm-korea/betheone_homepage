@@ -3,6 +3,7 @@
 import ProductANDCarousel from "@/app/mainComponents/ProductANDCarousel";
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import InViewAnimate from "../InViewAnimate";
 
 export const Main_2 = () => {
   return (
@@ -28,22 +29,16 @@ export const Main_2 = () => {
           alignItems: "start",
           gap: {
             xs: "10px",
-            md: "40px"
+            md: "40px",
           },
         }}
       >
-        <Box
+        <InViewAnimate
           sx={{
             display: "flex",
             flex: 1,
-            flexDirection: {
-              xs: "column",
-              md: "row",
-            },
-            pb: {
-              xs: '10px',
-              md: 0
-            }
+            flexDirection: { xs: "column", md: "row" },
+            pb: { xs: "10px", md: 0 },
           }}
         >
           <Typography
@@ -74,7 +69,7 @@ export const Main_2 = () => {
           >
             더 빠르고, 간편하고, 정확하게.
           </Typography>
-        </Box>
+        </InViewAnimate>
         <ProductANDCarousel />
       </Box>
     </Box>

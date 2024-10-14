@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import ANDImage from "@/images/LAN_use1.jpg";
 import ContactModal from "@/app/and/components/ContactModal";
+import InViewAnimate from "../InViewAnimate";
 
 const SelectionComponent = ({ title, subtitle, options, refProp }: any) => (
   <Box ref={refProp} sx={{ width: "100%", mb: { lg: "30vh", xs: "10vh" } }}>
@@ -262,27 +263,31 @@ export const SelectSection = () => {
               alignItems: "start",
             }}
           >
-            <Box sx={{ mt: 5 }}>
-              <Typography
+              <InViewAnimate
                 sx={{
-                  color: "#b64400",
-                  fontSize: { xs: "14px", sm: "17px" },
-                  fontWeight: "medium",
+                  mt: 5,
                 }}
               >
-                더 빠르고, 간편하고, 정확하게.
-              </Typography>
-              <Typography
-                sx={{
-                  color: "black",
-                  fontSize: { xs: "28px", sm: "40px" },
-                  fontWeight: "bold",
-                  mb: { xs: 3, sm: 6 },
-                }}
-              >
-                All New DNC
-              </Typography>
-            </Box>
+                <Typography
+                  sx={{
+                    color: theme.palette.error.main,
+                    fontSize: { xs: "14px", sm: "17px" },
+                    fontWeight: "medium",
+                  }}
+                >
+                  더 빠르고, 간편하고, 정확하게.
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "black",
+                    fontSize: { xs: "28px", sm: "40px" },
+                    fontWeight: "bold",
+                    mb: { xs: 3, sm: 6 },
+                  }}
+                >
+                  All New DNC
+                </Typography>
+              </InViewAnimate>
             <Box
               sx={{
                 display: "flex",
@@ -429,7 +434,7 @@ export const SelectSection = () => {
                         <span style={{ color: "#006bff" }}>
                           {selectedModel === "LAN"
                             ? selectedOption === "Option1"
-                              ? "데이트 입력, 출력"
+                              ? "데이터 입력, 출력"
                               : "M198, DNC(REMOTE)가공 사용 가능"
                             : selectedOption === "Option1"
                             ? "3인치 디스플레이"

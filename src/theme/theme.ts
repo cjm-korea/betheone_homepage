@@ -13,6 +13,9 @@ const theme = createTheme({
     mode: 'light',
     primary: {
       main: '#006bff'
+    },
+    error: {
+      main: '#E30B32'
     }
   },
   typography: {

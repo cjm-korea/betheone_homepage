@@ -5,9 +5,12 @@ import React from "react";
 import RS232_use2 from "@/images/RS232_use2.jpg";
 import Before_and from "@/images/Before_and.png";
 import After_and from "@/images/After_and.png";
+import InViewAnimate from "../InViewAnimate";
 
 export const Main_1 = () => {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Box
       sx={{
@@ -16,41 +19,23 @@ export const Main_1 = () => {
         backgroundColor: "#F5F5F7",
       }}
     >
-      <Box
-        sx={{
-          px: {
-            xs: "30px",
-            md: "170px",
-          },
-          pt: "100px",
-          pb: "60px",
-          height: "auto",
-          color: "white",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "start",
-          gap: {
-            xs: "10px",
-            md: "40px",
-          },
-        }}
-      >
-        <Box
+        <InViewAnimate
           sx={{
+            px: {
+              xs: "30px",
+              md: "170px",
+            },
+            pt: "100px",
+            pb: "60px",
+            height: "auto",
+            color: "white",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            textAlign: "center",
-            width: "100%",
-            flex: 1,
-            flexDirection: {
-              xs: "column",
-              md: "column",
-            },
-            pb: {
+            gap: {
               xs: "10px",
-              md: 0,
+              md: "10px",
             },
           }}
         >
@@ -64,8 +49,7 @@ export const Main_1 = () => {
               fontWeight: "bold",
             }}
           >
-            가장 쉬운 공작기계,{" "}
-            {useMediaQuery(theme.breakpoints.down('md')) ? <br /> : null}제조 인프라 솔루션
+            가장 쉬운 공작기계, {isSmallScreen ? <br /> : null}제조 인프라 솔루션
           </Typography>
           <Typography
             sx={{
@@ -79,7 +63,7 @@ export const Main_1 = () => {
           >
             데이터 전송 및 관리
           </Typography>
-        </Box>
+        </InViewAnimate>
         <Box
           sx={{
             display: "flex",
@@ -121,6 +105,5 @@ export const Main_1 = () => {
           />
         </Box>
       </Box>
-    </Box>
   );
 };

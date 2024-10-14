@@ -1,6 +1,7 @@
 import MainButton from "@/components/MainButton";
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import InViewAnimate from "../InViewAnimate";
 
 export const Main_4 = () => {
   return (
@@ -37,7 +38,7 @@ export const Main_4 = () => {
             gap: "40px",
           }}
         >
-          <Box
+          <InViewAnimate
             sx={{
               display: "flex",
               flexDirection: {
@@ -70,7 +71,7 @@ export const Main_4 = () => {
             >
               기술시연 및 문의.
             </Typography>
-          </Box>
+          </InViewAnimate>
           <MainButton
             href="https://forms.gle/RNYmpDQi2TsRyzmj7"
             sx={{ mt: "24px" }}

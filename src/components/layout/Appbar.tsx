@@ -85,8 +85,18 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
 import Logopath from "@/public/Logo.png";
 import Link from "next/link";
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Typography } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import {
+  Box,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import MainButton from "../MainButton";
 
 interface Props {
   window?: () => Window;
@@ -110,12 +120,17 @@ function HideOnScroll(props: Props) {
 export default function HideAppBar(props: Props) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
-  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-    if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
-      return;
-    }
-    setDrawerOpen(open);
-  };
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setDrawerOpen(open);
+    };
 
   const drawerContent = (
     <Box
@@ -126,15 +141,17 @@ export default function HideAppBar(props: Props) {
     >
       <List>
         {[
-          { text: '홈', href: '/' },
-          { text: '부착형 무선 데이터 서버 AND', href: '/and' },
-          { text: '빠른 연락', href: 'https://forms.gle/RNYmpDQi2TsRyzmj7' },
+          { text: "홈", href: "/" },
+          { text: "부착형 무선 데이터 서버 AND", href: "/and" },
+          { text: "빠른 연락", href: "https://forms.gle/RNYmpDQi2TsRyzmj7" },
         ].map((item, index) => (
           <React.Fragment key={item.text}>
             <ListItem button component={Link} href={item.href}>
               <ListItemText primary={item.text} />
             </ListItem>
-            {index < 2 && <Divider sx={{ bgcolor: 'grey.300', width: '80%', mx: 2 }} />}
+            {index < 2 && (
+              <Divider sx={{ bgcolor: "grey.300", width: "80%", mx: 2 }} />
+            )}
           </React.Fragment>
         ))}
       </List>
@@ -165,32 +182,46 @@ export default function HideAppBar(props: Props) {
                 alt="Logo"
                 sx={{
                   width: {
-                    xs: '100px',
-                    md: '120px',
+                    xs: "100px",
+                    md: "120px",
                   },
-                  height: 'auto',
-                  transition: 'width 0.3s ease',
+                  height: "auto",
+                  transition: "width 0.3s ease",
                 }}
               />
             </Link>
-            <IconButton
-              edge="end"
-              color="inherit"
-              aria-label="menu"
-              onClick={toggleDrawer(true)}
-              sx={{ color: 'black' }}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
             >
-              <MenuIcon />
-            </IconButton>
+              <MainButton
+                href="https://forms.gle/RNYmpDQi2TsRyzmj7"
+                sx={{
+                  width: "fit-content",
+                  fontSize: "14px",
+                  marginRight: 2,
+                }}
+              >
+                빠른 연락
+              </MainButton>
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="menu"
+                onClick={toggleDrawer(true)}
+                sx={{ color: "black" }}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
       <Toolbar sx={{ width: "fit-content" }} />
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={toggleDrawer(false)}
-      >
+      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         {drawerContent}
       </Drawer>
     </React.Fragment>

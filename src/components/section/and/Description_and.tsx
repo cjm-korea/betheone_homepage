@@ -1,11 +1,7 @@
-"use client"
+"use client";
 
 import React from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ANDImage from "@/images/LAN_use1.jpg";
 import ANDComposeCard from "@/app/and/components/ANDComposeCard";
 import Image_Cable from "@/images/Cable.png";
@@ -14,6 +10,7 @@ import Image_AND from "@/images/and_only.png";
 import Icon_DNC from "@/icons/Icon_DNC.png";
 import Icon_Wireless from "@/icons/Icon_Wireless.png";
 import Icon_Digital from "@/icons/Icon_Digital.png";
+import InViewAnimate from "../InViewAnimate";
 
 export const Description_and = () => {
   return (
@@ -114,13 +111,20 @@ export const Description_and = () => {
         }}
       >
         <Box sx={{ padding: 0 }}>
-          <Typography
-            variant="h5"
-            sx={{ marginBottom: 4, textAlign: "center" }}
-          >
-            내 기계와 함께 누릴 수<br />
-            있는 놀라움의 세계.
-          </Typography>
+          <InViewAnimate>
+            <Typography
+              variant="h5"
+              sx={{
+                marginBottom: 4,
+                textAlign: "center",
+                color: "black",
+                fontSize: { xs: "1.4rem", md: "24px" },
+                fontWeight: "medium",
+              }}
+            >
+              내 장비와 함께 누릴 수 있는 놀라움의 세계.
+            </Typography>
+          </InViewAnimate>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={4}>
               <Box

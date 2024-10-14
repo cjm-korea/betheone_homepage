@@ -1,6 +1,7 @@
 import ProductCarousel from "@/app/mainComponents/ProductCarousel";
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import InViewAnimate from "../InViewAnimate";
 
 export const Main_3 = () => {
   return (
@@ -30,7 +31,7 @@ export const Main_3 = () => {
           },
         }}
       >
-        <Box
+        <InViewAnimate
           sx={{
             display: "flex",
             flex: 1,
@@ -39,9 +40,9 @@ export const Main_3 = () => {
               md: "row",
             },
             pb: {
-              xs: '10px',
-              md: 0
-            }
+              xs: "10px",
+              md: 0,
+            },
           }}
         >
           <Typography
@@ -72,7 +73,7 @@ export const Main_3 = () => {
           >
             불가능을 가능하게.
           </Typography>
-        </Box>
+        </InViewAnimate>
         <ProductCarousel />
       </Box>
     </Box>
