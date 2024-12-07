@@ -10,6 +10,7 @@ interface MainButtonProps {
   href?: string;
   children: React.ReactNode;
   sx?: SxProps<Theme>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>; // onClick 추가
 }
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -26,13 +27,21 @@ const CustomButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const MainButton: React.FC<MainButtonProps> = ({ href, children, sx }) => {
-  return href ? (
-    <Link href={href} passHref>
-      <CustomButton sx={sx}>{children}</CustomButton>
-    </Link>
-  ) : (
-    <CustomButton sx={sx}>{children}</CustomButton>
+const MainButton: React.FC<MainButtonProps> = ({ href, children, sx, onClick }) => {
+  if (href) {
+    return (
+      <Link href={href} passHref>
+        <CustomButton component="a" sx={sx} onClick={onClick}>
+          {children}
+        </CustomButton>
+      </Link>
+    );
+  }
+
+  return (
+    <CustomButton sx={sx} onClick={onClick}>
+      {children}
+    </CustomButton>
   );
 };
 

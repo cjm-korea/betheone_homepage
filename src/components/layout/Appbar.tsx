@@ -119,6 +119,10 @@ function HideOnScroll(props: Props) {
 
 export default function HideAppBar(props: Props) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const handleCopyCall = () => {
+    navigator.clipboard.writeText('010-6567-2785');
+    alert('전화번호가 클립보드에 복사되었습니다.');
+  };
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -198,7 +202,8 @@ export default function HideAppBar(props: Props) {
               }}
             >
               <MainButton
-                href="https://forms.gle/RNYmpDQi2TsRyzmj7"
+                href="tel:010-6567-2785"
+                onClick={handleCopyCall}
                 sx={{
                   width: "fit-content",
                   fontSize: "14px",
