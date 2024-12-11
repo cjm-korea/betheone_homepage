@@ -95,11 +95,11 @@ const ProductCarousel: React.FC = () => {
         <ArrowLeft sx={{ width: "48px", height: "48px" }} />
       </ArrowButton>
       <StyledSlider {...settings} ref={slider}>
-        <ProductSquareBox
-          imageSrc={AND.src.toString()}
-          subtitle={"어디서나 완벽하게."}
-          title={"부착형 무선 데이터서버"}
-          colorConcept="black"
+      <ProductSquareBox
+          imageSrc={Scam.src.toString()}
+          subtitle={"가장 합리적인 선택."}
+          title={"에스캠"}
+          colorConcept="white"
           href={"#"}
         />
         <ProductSquareBox
@@ -111,16 +111,16 @@ const ProductCarousel: React.FC = () => {
         />
         <ProductSquareBox
           imageSrc={IntelliCAD.src.toString()}
-          subtitle={"언제나 합리적인 선택."}
+          subtitle={"압도적인 가성비."}
           title={"Intelli CMS CAD"}
           colorConcept="white"
           href={"#"}
         />
         <ProductSquareBox
-          imageSrc={Scam.src.toString()}
-          subtitle={"무엇이든 간단하게."}
-          title={"S-CAM"}
-          colorConcept="white"
+          imageSrc={AND.src.toString()}
+          subtitle={"어디서나 완벽하게."}
+          title={"부착형 무선 데이터서버"}
+          colorConcept="black"
           href={"#"}
         />
       </StyledSlider>
