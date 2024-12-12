@@ -31,11 +31,9 @@ const MainButton: React.FC<MainButtonProps> = ({ href, children, sx, onClick }) 
   if (href) {
     return (
       <Link href={href} passHref>
-        <a>
-          <CustomButton sx={sx} onClick={onClick}>
+          <CustomButton sx={sx} onClick={onClick}>  
             {children}
           </CustomButton>
-        </a>
       </Link>
     );
   }

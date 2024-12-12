@@ -2,7 +2,6 @@
 
 import { Box, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import RS232_use2 from "@/images/RS232_use2.jpg";
 import Before_and from "@/images/Before_and.png";
 import After_and from "@/images/After_and.png";
 import InViewAnimate from "../InViewAnimate";

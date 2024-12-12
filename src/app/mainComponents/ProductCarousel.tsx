@@ -100,8 +100,15 @@ const ProductCarousel: React.FC = () => {
           subtitle={"가장 합리적인 선택."}
           title={"에스캠"}
           colorConcept="white"
-          href={"#"}
+          href={"/s2025"}
         />
+          <ProductSquareBox
+            imageSrc={AND.src.toString()}
+            subtitle={"쉬운 업그레이드."}
+            title={"2025 스마트 지원사업"}
+            colorConcept="black"
+            href={"/s2025"}
+          />
         <ProductSquareBox
           imageSrc={Monitoring.src.toString()}
           subtitle={"항상 정확하게."}
@@ -114,14 +121,7 @@ const ProductCarousel: React.FC = () => {
           subtitle={"압도적인 가성비."}
           title={"Intelli CMS CAD"}
           colorConcept="white"
-          href={"#"}
-        />
-        <ProductSquareBox
-          imageSrc={AND.src.toString()}
-          subtitle={"어디서나 완벽하게."}
-          title={"부착형 무선 데이터서버"}
-          colorConcept="black"
-          href={"#"}
+          href={"/s2025"}
         />
       </StyledSlider>
       <ArrowButton
