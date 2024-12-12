@@ -147,6 +147,18 @@ export const MainContents = () => {
         >
           상담신청
         </MainButton>
+        <Typography
+          sx={{
+            color: "black",
+            fontSize: {
+              xs: "16px",
+              md: "24px",
+            },
+            opacity: "50%",
+          }}
+        >
+          잠깐의 상담이 사장님의 공장에 혁신을 불러옵니다.
+        </Typography>
       </Box>
 
       <InViewAnimate
@@ -336,8 +348,15 @@ export const MainContents = () => {
               },
             }}
           >
-            • CAD/CAM, 스마트 장비를 활용해 생산성 향상에 초점을 둔, 소상공인
-            맞춤 지원사업 입니다.
+            • CAD/CAM, 스마트 장비를 활용해{" "}
+            <Box component="span" sx={{ fontWeight: "bold" }}>
+              생산성 향상
+            </Box>
+            에 초점을 둔,{" "}
+            <Box component="span" sx={{ fontWeight: "bold" }}>
+              소상공인 맞춤 지원사업
+            </Box>
+            입니다.
           </Typography>
         </Box>
         <Box
@@ -472,6 +491,18 @@ export const MainContents = () => {
         >
           상담신청
         </MainButton>
+        <Typography
+          sx={{
+            color: "black",
+            fontSize: {
+              xs: "16px",
+              md: "24px",
+            },
+            opacity: "50%",
+          }}
+        >
+          잠깐의 상담이 사장님의 공장에 혁신을 불러옵니다.
+        </Typography>
       </Box>
     </Box>
   );
