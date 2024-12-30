@@ -18,7 +18,7 @@ const DescriptionCard: React.FC<DescriptionCardProps> = ({
     <Box
       sx={{
         width: 292,
-        height: 292,
+        height: { sm: 240, xl: 292 },
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
         borderRadius: "8px",
@@ -55,6 +55,7 @@ const DescriptionCard: React.FC<DescriptionCardProps> = ({
         />
         {/* 서브타이틀 */}
         <Typography
+          component="h6"
           sx={{
             fontSize: "12px",
             color: "#000000",
@@ -76,6 +77,7 @@ const DescriptionCard: React.FC<DescriptionCardProps> = ({
       >
         {/* 타이틀 */}
         <Typography
+          component="h3"
           sx={{
             fontSize: "20px",
             fontWeight: "bold",
@@ -88,6 +90,7 @@ const DescriptionCard: React.FC<DescriptionCardProps> = ({
         {/* 설명 목록 */}
         {descriptions.map((desc, index) => (
           <Typography
+            component="h6"
             key={index}
             sx={{
               fontSize: "12px",

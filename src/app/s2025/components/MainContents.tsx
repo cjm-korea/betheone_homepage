@@ -10,6 +10,7 @@ import Icon_s2025_4 from "@/icons/Icon_s2025_4.png";
 import InViewAnimate from "@/components/section/InViewAnimate";
 import MainButton from "@/components/MainButton";
 import DescriptionCard from "./DescriptionCard";
+import { Supporter } from "@/app/mainComponents/Supporter";
 
 export const MainContents = () => {
   const theme = useTheme();
@@ -88,6 +89,7 @@ export const MainContents = () => {
         }}
       >
         <Typography
+          component="h1"
           sx={{
             color: "black",
             fontSize: {
@@ -100,6 +102,7 @@ export const MainContents = () => {
           2025 스마트 제조 공작기계 지원사업
         </Typography>
         <Typography
+          component="h2"
           sx={{
             color: "black",
             fontSize: {
@@ -148,6 +151,7 @@ export const MainContents = () => {
           상담신청
         </MainButton>
         <Typography
+          component="p"
           sx={{
             color: "black",
             fontSize: {
@@ -182,6 +186,7 @@ export const MainContents = () => {
         }}
       >
         <Typography
+          component="h3"
           sx={{
             color: "black",
             fontSize: {
@@ -194,6 +199,7 @@ export const MainContents = () => {
           왜 비더원을 선택해야 할까요?
         </Typography>
         <Typography
+          component="p"
           sx={{
             color: "black",
             fontSize: {
@@ -251,6 +257,7 @@ export const MainContents = () => {
         }}
       >
         <Typography
+          component="h4"
           sx={{
             color: "black",
             fontSize: {
@@ -263,6 +270,7 @@ export const MainContents = () => {
           &lt;중소벤처기업부, 소상공인진흥공단 주관&gt;
         </Typography>
         <Typography
+          component="h2"
           sx={{
             color: "black",
             fontSize: {
@@ -275,6 +283,7 @@ export const MainContents = () => {
           공작기계 스마트화 지원사업
         </Typography>
         <Typography
+          component="h6"
           sx={{
             color: "black",
             fontSize: {
@@ -316,6 +325,7 @@ export const MainContents = () => {
           }}
         >
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -328,6 +338,7 @@ export const MainContents = () => {
             통해 디지털화를 지원하는 사업입니다.
           </Typography>
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -340,6 +351,7 @@ export const MainContents = () => {
             개선합니다.
           </Typography>
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -374,6 +386,7 @@ export const MainContents = () => {
           }}
         >
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -385,6 +398,7 @@ export const MainContents = () => {
             * 참여요건
           </Typography>
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -396,6 +410,7 @@ export const MainContents = () => {
             (1) 10인 미만 사업장
           </Typography>
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -429,6 +444,7 @@ export const MainContents = () => {
           }}
         >
           <Typography
+            component="h3"
             sx={{
               color: "black",
               fontSize: {
@@ -441,6 +457,7 @@ export const MainContents = () => {
             예산 구성
           </Typography>
           <Typography
+            component="h6"
             sx={{
               color: "black",
               fontSize: {
@@ -469,6 +486,7 @@ export const MainContents = () => {
           }}
         >
           <Typography
+            component="p"
             sx={{
               color: "black",
               fontSize: {
@@ -492,6 +510,7 @@ export const MainContents = () => {
           상담신청
         </MainButton>
         <Typography
+          component="p"
           sx={{
             color: "black",
             fontSize: {
@@ -504,6 +523,8 @@ export const MainContents = () => {
           잠깐의 상담이 사장님의 공장에 혁신을 불러옵니다.
         </Typography>
       </Box>
+
+      <Supporter />
     </Box>
   );
 };
