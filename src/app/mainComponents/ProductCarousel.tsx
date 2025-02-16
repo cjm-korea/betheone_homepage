@@ -84,7 +84,7 @@ const settings = {
     },
   ],
 };
-
+ 
 const ProductCarousel: React.FC = () => {
   const slider = React.useRef<Slider>(null);
 
