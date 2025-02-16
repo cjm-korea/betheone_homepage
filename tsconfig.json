@@ -24,7 +24,8 @@
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
       "@/images/*": ["./public/images/*"],
-      "@/icons/*": ["./public/icons/*"]
+      "@/icons/*": ["./public/icons/*"],
+      "@/logos/*": ["./public/logos/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

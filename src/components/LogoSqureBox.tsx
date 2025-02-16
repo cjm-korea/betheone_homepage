@@ -1,13 +1,11 @@
-// ProductSquareBox.tsx
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
-import theme from "@/theme/theme";
-import { PictureImage } from "./PictureImage";
+import { LogoImage } from "./LogoImage";
 
-interface ProductSquareBoxProps {
+interface LogoSquareBoxProps {
   title: string;
   subtitle: string;
   imageSrc: string;
@@ -15,7 +13,7 @@ interface ProductSquareBoxProps {
   href: Url;
 }
 
-const StyledProductSquareBox = styled(Box, {
+const StyledLogoSquareBox = styled(Box, {
   shouldForwardProp: (prop) => prop !== "colorConcept",
 })<{ colorConcept: "white" | "black" }>(({ theme, colorConcept }) => ({
   width: 400,
@@ -51,7 +49,7 @@ const StyledLowerBox = styled(Box)({
   borderRadius: "18px",
 });
 
-const ProductSquareBox: React.FC<ProductSquareBoxProps> = ({
+const LogoSquareBox: React.FC<LogoSquareBoxProps> = ({
   title,
   subtitle,
   imageSrc,
@@ -60,7 +58,7 @@ const ProductSquareBox: React.FC<ProductSquareBoxProps> = ({
 }) => {
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
-      <StyledProductSquareBox colorConcept={colorConcept}>
+      <StyledLogoSquareBox colorConcept={colorConcept}>
         <StyledUpperBox>
           <Typography
             variant="h3"
@@ -89,11 +87,11 @@ const ProductSquareBox: React.FC<ProductSquareBoxProps> = ({
           </Typography>
         </StyledUpperBox>
         <StyledLowerBox>
-          <PictureImage src={imageSrc} alt={title} />
+          <LogoImage src={imageSrc} alt={title} />
         </StyledLowerBox>
-      </StyledProductSquareBox>
+      </StyledLogoSquareBox>
     </Link>
   );
 };
 
-export default ProductSquareBox;
+export default LogoSquareBox;

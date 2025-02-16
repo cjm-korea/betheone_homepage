@@ -148,13 +148,14 @@ export default function HideAppBar(props: Props) {
           { text: "홈", href: "/" },
           { text: "부착형 무선 데이터 서버 AND", href: "/and" },
           { text: "2025 스마트화 지원사업", href: "/s2025" },
+          { text: "캠(CAM) 구매", href: "/cam" },
           { text: "빠른 연락", href: "tel:010-6567-2785" },
         ].map((item, index) => (
           <React.Fragment key={item.text}>
             <ListItem button component={Link} href={item.href}>
               <ListItemText primary={item.text} />
             </ListItem>
-            {index < 3 && (
+            {index < 4 && (
               <Divider sx={{ bgcolor: "grey.300", width: "80%", mx: 2 }} />
             )}
           </React.Fragment>

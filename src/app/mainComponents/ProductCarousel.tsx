@@ -7,9 +7,12 @@ import { styled } from "@mui/system";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import AND from "@/images/AND.jpg";
 import IntelliCAD from "@/images/IntelliCAD.jpg";
-import Scam from "@/images/Scam.png";
+import MasterCAM_Logo from "@/logos/masterCAM_logo.png";
+import sCAM_Logo from "@/logos/sCAM_logo.png";
+import cimatronCAM_Logo from "@/logos/cimatronCAM_logo.png";
 import Monitoring from "@/images/Monitoring.jpg";
 import ProductSquareBox from "../../components/ProductSquareBox";
+import LogoSquareBox from "@/components/LogoSqureBox";
 
 const StyledSlider = styled(
   forwardRef<Slider, any>((props, ref) => <Slider ref={ref} {...props} />)
@@ -25,7 +28,7 @@ const CarouselContainer = styled(Box)({
   flexDirection: "column",
   justifyContent: "center",
   position: "relative",
-  overflowX: 'visible',
+  overflowX: "visible",
   "&:hover .arrow": {
     opacity: 1,
   },
@@ -78,7 +81,7 @@ const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
       },
-    }
+    },
   ],
 };
 
@@ -95,20 +98,34 @@ const ProductCarousel: React.FC = () => {
         <ArrowLeft sx={{ width: "48px", height: "48px" }} />
       </ArrowButton>
       <StyledSlider {...settings} ref={slider}>
-      <ProductSquareBox
-          imageSrc={Scam.src.toString()}
+        <LogoSquareBox
+          imageSrc={sCAM_Logo.src.toString()}
           subtitle={"가장 합리적인 선택."}
           title={"에스캠"}
           colorConcept="white"
+          href={"/cam"}
+        />
+        <LogoSquareBox
+          imageSrc={MasterCAM_Logo.src.toString()}
+          subtitle={"최고의 방법."}
+          title={"마스터캠"}
+          colorConcept="white"
+          href={"/cam"}
+        />
+        <LogoSquareBox
+          imageSrc={cimatronCAM_Logo.src.toString()}
+          subtitle={"당신의 파트너."}
+          title={"시마트론"}
+          colorConcept="black"
+          href={"/cam"}
+        />
+        <ProductSquareBox
+          imageSrc={AND.src.toString()}
+          subtitle={"쉬운 업그레이드."}
+          title={"2025 스마트 지원사업"}
+          colorConcept="black"
           href={"/s2025"}
         />
-          <ProductSquareBox
-            imageSrc={AND.src.toString()}
-            subtitle={"쉬운 업그레이드."}
-            title={"2025 스마트 지원사업"}
-            colorConcept="black"
-            href={"/s2025"}
-          />
         <ProductSquareBox
           imageSrc={Monitoring.src.toString()}
           subtitle={"항상 정확하게."}
@@ -116,7 +133,7 @@ const ProductCarousel: React.FC = () => {
           colorConcept="black"
           href={"#"}
         />
-        <ProductSquareBox
+        <LogoSquareBox
           imageSrc={IntelliCAD.src.toString()}
           subtitle={"압도적인 가성비."}
           title={"Intelli CMS CAD"}
